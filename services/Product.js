@@ -13,6 +13,15 @@ async function byId(id) {
 }
 
 async function create(name) {
+  if (name.length < 5) {
+    return {
+      error: {
+        code: invalid_length,
+        message: '"name" length'
+      },
+    };
+  }
+
   await Product.create(name);
 }
 

@@ -12,7 +12,12 @@ async function byId(id) {
   return product[0];
 }
 
+async function create(name) {
+  await Product.create(name);
+}
+
 module.exports = {
   all,
   byId,
+  create,
 };

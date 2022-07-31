@@ -1,3 +1,7 @@
 const rescue = require('express-rescue');
 
-module.exports = (arr) => arr.map((e) => rescue(e));
+module.exports = (any) => (
+  (typeof any === 'function')
+    ? rescue(any)
+    : any.map((e) => rescue(e))
+);

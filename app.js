@@ -1,9 +1,10 @@
 const express = require('express');
-const ErroHandler = require('./middlewares/ErroHandler');
+const ErroHandler = require('./Errors/ControllerErrorHandler');
 const Product = require('./routes/Product');
+const Sale = require('./routes/Sale');
 
 const app = express();
-const endpoints = ['/products'];
+const endpoints = ['/products', '/sales'];
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
@@ -12,6 +13,7 @@ app.get('/', (_request, response) => {
 
 app.use(express.json());
 app.use(endpoints[0], Product);
+app.use(endpoints[1], Sale);
 app.use(ErroHandler);
 
 // não remova essa exportação, é para o avaliador funcionar

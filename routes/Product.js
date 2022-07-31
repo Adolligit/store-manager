@@ -1,11 +1,10 @@
 const express = require('express');
-const rescue = require('express-rescue');
 const Product = require('../controllers/Product');
-const verifyId = require('../middlewares/Products/verifyId');
-const verifyName = require('../middlewares/Products/verifyName');
+const verifyId = require('../middlewares/Product/verifyId');
+const verifyName = require('../middlewares/Product/verifyName');
+const useRescue = require('../utils/useRescue');
 
 const router = express.Router();
-const useRescue = (arr) => arr.map((e) => rescue(e));
 
 const byId = [verifyId, Product.byId];
 const create = [verifyName, Product.create];

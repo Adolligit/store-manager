@@ -15,13 +15,28 @@ async function createSales(req, res) {
 
   const response = await Sale.createSalesProduct([...req.body]);
 
-  if (!response.saleId) {
+  if (response.statusCode) {
     const { statusCode, message } = response;
 
-    return res.status(statusCode).json({ message });
+    throw new Error(message, { cause: { status: statusCode } });
   }
 
   return res.status(201).json({ id: response.saleId, itemsSold: req.body });
 }
 
-module.exports = { createSales };
+async function getSales({ params }, res) {
+  const response = await Sale.getSales(params.id);
+
+  if (response.statusCode) {
+    const { statusCode, message } = response;
+
+    throw new Error(message, { cause: { status: statusCode } });
+  }
+
+  return res.status(200).json(response);
+}
+
+module.exports = {
+  createSales,
+  getSales,
+};

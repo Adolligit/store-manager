@@ -1,5 +1,5 @@
 const express = require('express');
-const ErroHandler = require('./Errors/ControllerErrorHandler');
+const ControllerErrorHandler = require('./Errors/ControllerErrorHandler');
 const Product = require('./routes/Product');
 const Sale = require('./routes/Sale');
 
@@ -14,7 +14,7 @@ app.get('/', (_request, response) => {
 app.use(express.json());
 app.use(endpoints[0], Product);
 app.use(endpoints[1], Sale);
-app.use(ErroHandler);
+app.use(ControllerErrorHandler);
 
 // não remova essa exportação, é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima

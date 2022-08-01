@@ -18,6 +18,9 @@ async function byId(id) {
 const create = (name) => Product.create(name);
 
 async function update(id, name) {
+  /*
+    function search product
+  */
   const [product] = await Product.byId(id);
 
   if (!product[0]) return ServiceErrorHandler('notFound', 'Product not found');
@@ -26,9 +29,18 @@ async function update(id, name) {
   return { id, name };
 }
 
+async function remove(id) {
+  const [product] = await Product.byId(id);
+
+  if (!product[0]) return ServiceErrorHandler('notFound', 'Product not found');
+
+  return Product.remove(id);
+}
+
 module.exports = {
   all,
   byId,
   create,
   update,
+  remove,
 };

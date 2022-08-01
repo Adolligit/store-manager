@@ -1,7 +1,13 @@
 const connection = require('../connection/connect');
 
-const all = () => connection.execute('SELECT * FROM StoreManager.products');
-const byId = (id) => connection.execute('SELECT * FROM StoreManager.products WHERE id=?', [id]);
+const all = () => connection.execute(
+  'SELECT * FROM StoreManager.products',
+);
+
+const byId = (id) => connection.execute(
+  'SELECT * FROM StoreManager.products WHERE id=?',
+  [id],
+);
 
 function create(name) {
   return connection.execute(
@@ -10,19 +16,22 @@ function create(name) {
   );
 }
 
-async function update(id, name) {
-  const query = `
-    UPDATE StoreManager.products 
+const update = (id, name) => connection.execute(
+  ` UPDATE StoreManager.products 
     SET name = ?
-    WHERE id = ?;
-  `;
+    WHERE id = ?`,
+  [name, id],
+);
 
-  return connection.execute(query, [name, id]);
-}
+const remove = (id) => connection.execute(
+  'DELETE FROM StoreManager.products WHERE id = ?',
+  [id],
+);
 
 module.exports = {
   all,
   byId,
   create,
   update,
+  remove,
 };

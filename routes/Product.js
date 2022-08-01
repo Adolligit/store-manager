@@ -14,5 +14,6 @@ router.get('/', Product.all);
 router.get('/:id', useRescue(byId));
 router.post('/', useRescue(create));
 router.put('/:id', useRescue(update));
+router.delete('/:id', useRescue(Product.remove));
 
 module.exports = router;

@@ -10,8 +10,19 @@ function create(name) {
   );
 }
 
+async function update(id, name) {
+  const query = `
+    UPDATE StoreManager.products 
+    SET name = ?
+    WHERE id = ?;
+  `;
+
+  return connection.execute(query, [name, id]);
+}
+
 module.exports = {
   all,
   byId,
   create,
+  update,
 };

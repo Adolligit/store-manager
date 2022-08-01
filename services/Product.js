@@ -1,3 +1,4 @@
+const ServiceErrorHandler = require('../Errors/ServiceErrorHandler');
 const Product = require('../models/Product');
 
 async function all() {
@@ -9,15 +10,25 @@ async function all() {
 async function byId(id) {
   const [product] = await Product.byId(id);
 
+  if (!product[0]) return ServiceErrorHandler('notFound', 'Product not found');
+
   return product[0];
 }
 
-async function create(name) {
-  await Product.create(name);
+const create = (name) => Product.create(name);
+
+async function update(id, name) {
+  const [product] = await Product.byId(id);
+
+  if (!product[0]) return ServiceErrorHandler('notFound', 'Product not found');
+
+  await Product.update(id, name);
+  return { id, name };
 }
 
 module.exports = {
   all,
   byId,
   create,
+  update,
 };

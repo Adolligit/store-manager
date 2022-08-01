@@ -8,9 +8,11 @@ const router = express.Router();
 
 const byId = [verifyId, Product.byId];
 const create = [verifyName, Product.create];
+const update = [verifyId, verifyName, Product.update];
 
 router.get('/', Product.all);
 router.get('/:id', useRescue(byId));
 router.post('/', useRescue(create));
+router.put('/:id', useRescue(update));
 
 module.exports = router;

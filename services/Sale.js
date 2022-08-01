@@ -10,7 +10,7 @@ async function createSales() {
 
 async function createSalesProduct(sales) {
   const products = await sales.map(({ productId }) => Product.byId(productId));
-  const namesPresent = await Promise.all(products).then((arr) => arr.every((e) => e));
+  const namesPresent = await Promise.all(products).then((arr) => arr.every((e) => e.name));
 
   if (!namesPresent) return ServiceErrorHandler('notFound', 'Product not found');
     

@@ -8,6 +8,9 @@ async function all() {
 }
 
 async function byId(id) {
+  /*
+    function notFound
+  */
   const [product] = await Product.byId(id);
 
   if (!product[0]) return ServiceErrorHandler('notFound', 'Product not found');
@@ -19,7 +22,7 @@ const create = (name) => Product.create(name);
 
 async function update(id, name) {
   /*
-    function search product
+    function notFound
   */
   const [product] = await Product.byId(id);
 

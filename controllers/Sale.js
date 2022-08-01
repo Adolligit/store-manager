@@ -36,7 +36,20 @@ async function getSales({ params }, res) {
   return res.status(200).json(response);
 }
 
+async function remove({ params }, res) {
+  const response = await Sale.remove(params.id);
+
+  if (response.statusCode) {
+    const { statusCode, message } = response;
+
+    throw new Error(message, { cause: { status: statusCode } });
+  }
+
+  return res.status(204).end();
+}
+
 module.exports = {
   createSales,
   getSales,
+  remove,
 };

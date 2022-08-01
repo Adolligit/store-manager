@@ -12,5 +12,6 @@ const byId = [verifyId, Sale.getSales];
 router.get('/', useRescue(Sale.getSales));
 router.get('/:id', useRescue(byId));
 router.post('/', useRescue(create));
+router.delete('/:id', useRescue(Sale.remove));
 
 module.exports = router;

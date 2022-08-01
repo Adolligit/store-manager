@@ -39,9 +39,19 @@ const byId = (id) =>
     [id],
   );
 
+const remove = (id) =>
+  connection.execute(
+    `
+      DELETE FROM StoreManager.sales
+      WHERE id = ?
+    `,
+    [id],
+  );
+
 module.exports = {
   createSales,
   createSalesProduct,
   all,
   byId,
+  remove,
 };

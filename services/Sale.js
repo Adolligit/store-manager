@@ -12,6 +12,9 @@ async function createSalesProduct(sales) {
   const products = await sales.map(({ productId }) => Product.byId(productId));
   const namesPresent = await Promise.all(products).then((arr) => arr.every((e) => e.name));
 
+  /*
+    function notFound
+  */
   if (!namesPresent) return ServiceErrorHandler('notFound', 'Product not found');
     
   const saleId = await createSales();
@@ -28,8 +31,17 @@ async function getSales(id) {
   return result;
 }
 
+async function remove(id) {
+  const [result] = await Sale.byId(id);
+
+  if (!result.length) return ServiceErrorHandler('notFound', 'Sale not found');
+
+  return Sale.remove(id);
+}
+
 module.exports = {
   createSales,
   createSalesProduct,
   getSales,
+  remove,
 };

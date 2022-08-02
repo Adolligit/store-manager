@@ -8,10 +8,13 @@ const router = express.Router();
 
 const create = [verifySaleEntry, Sale.createSales];
 const byId = [verifyId, Sale.getSales];
+const remove = [verifyId, Sale.remove];
+const update = [verifyId, verifySaleEntry, Sale.update];
 
 router.get('/', useRescue(Sale.getSales));
-router.get('/:id', useRescue(byId));
 router.post('/', useRescue(create));
-router.delete('/:id', useRescue(Sale.remove));
+router.get('/:id', useRescue(byId));
+router.delete('/:id', useRescue(remove));
+router.put('/:id', useRescue(update));
 
 module.exports = router;

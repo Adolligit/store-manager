@@ -39,9 +39,31 @@ async function remove(id) {
   return Sale.remove(id);
 }
 
+async function update(id, data) {
+  /*
+    function notFound
+  */
+  const [product] = await Sale.byId(id);
+
+  if (!product.length) return ServiceErrorHandler('notFound', 'Sale not found');
+
+    /*
+    function verifyExistProduct
+  */
+  const products = await data.map(({ productId }) => Product.byId(productId));
+  const namesPresent = await Promise.all(products).then((arr) => arr.every((e) => e.name));
+
+  if (!namesPresent) return ServiceErrorHandler('notFound', 'Product not found');
+
+  await data.forEach((e) => Sale.update(id, e));
+
+  return { saleId: id, itemsUpdated: data };
+}
+
 module.exports = {
   createSales,
   createSalesProduct,
   getSales,
   remove,
+  update,
 };

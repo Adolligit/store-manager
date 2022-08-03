@@ -28,10 +28,16 @@ const remove = (id) => connection.execute(
   [id],
 );
 
+const query = (search) => connection.execute(
+  'SELECT * FROM StoreManager.products WHERE name LIKE ?',
+  [`%${search}%`],
+);
+
 module.exports = {
   all,
   byId,
   create,
   update,
   remove,
+  query,
 };

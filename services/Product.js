@@ -40,10 +40,17 @@ async function remove(id) {
   return Product.remove(id);
 }
 
+async function query(search) {
+  const [products] = await Product.query(search);
+
+  return products;
+}
+
 module.exports = {
   all,
   byId,
   create,
   update,
   remove,
+  query,
 };

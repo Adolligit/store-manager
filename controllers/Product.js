@@ -50,10 +50,19 @@ async function remove(req, res) {
   res.status(204).end();
 }
 
+async function query(req, res) {
+  const { q } = req.query;
+
+  if (!q) return all(req, res);
+
+  return res.status(200).json(await Product.query(q));
+}
+
 module.exports = {
   all,
   byId,
   create,
   update,
   remove,
+  query,
 };

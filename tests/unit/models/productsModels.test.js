@@ -19,15 +19,26 @@ const expectedProducts = [
   }
 ];
 
-after(() => Connection.execute.restore())
 
 describe("[MODEL: Product] Validando o retorno das querys", () => {
+  afterEach(() => Connection.execute.restore())
 
   it("Será retornado um array com todos os Produtos cadastrados", async () => {
     sinon.stub(Connection, "execute").resolves(expectedProducts);
     
     const response = await Product.all();
     
-      expect(response).to.be.deep.eq(expectedProducts);
+    response.forEach((e) => expect(e).to.be.an("object"));
+    expect(response).to.be.deep.eq(expectedProducts);
+  });
+
+  it('O id e o nome será retornado ao criar o novo produto', async () => {
+    const mockIts = [{ id: 3, name: 'test' }];
+
+    sinon.stub(Connection, "execute").resolves(mockIts);
+
+    const response = await Product.create('test')
+
+    expect(response).to.be.deep.eq(mockIts)
   });
 });

@@ -4,14 +4,17 @@ const sinon = require("sinon");
 const ProductModel = require("../../../models/Product");
 const ProductService = require("../../../services/Product");
 
- after(() => ProductModel.all.restore());
 
 describe("[SERVICE: Product] Certificando sobre as regras de negócio", () => {
+  afterEach(() => ProductModel.all.restore());
+
   it("A função ProductService foi executada", async () => {
-    sinon.stub(ProductModel, "all").resolves([]);
+    const mockIts = [{ id: 1, name: 'test' }];
+
+    sinon.stub(ProductModel, "all").resolves(mockIts);
 
     const response = await ProductService.all();
 
-    expect(response).equal(undefined);
+    expect(response).equal(mockIts[0]);
   });
 });

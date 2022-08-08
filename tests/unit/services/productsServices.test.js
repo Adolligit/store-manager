@@ -1,20 +1,38 @@
 const { expect } = require("chai");
-const sinon = require("sinon");
+const Sinon = require("sinon");
 
-const ProductModel = require("../../../models/Product");
-const ProductService = require("../../../services/Product");
+const ProductService = require('../../../services/Product');
+const ProductModel = require('../../../models/Product');
 
+const all = require('../../mocks/all');
 
-describe("[SERVICE: Product] Certificando sobre as regras de negócio", () => {
-  afterEach(() => ProductModel.all.restore());
-
-  it("A função ProductService foi executada", async () => {
-    const mockIts = [{ id: 1, name: 'test' }];
-
-    sinon.stub(ProductModel, "all").resolves(mockIts);
-
-    const response = await ProductService.all();
-
-    expect(response).equal(mockIts[0]);
+describe.only('[PRODUCT: service]', () => {
+  before(() => {
+    Sinon.stub(ProductModel, 'all').resolves([all, []])
   });
-});
+
+  after(() => ProductModel.all.restore());
+  
+  describe('[GET, "/products"]', () => {
+    it('será retornado um array', async () => {
+      const products = await ProductService.all();
+
+      expect(products).to.be.an('array');
+    });
+
+    it('os valores retornados são correspondentes', async () => {
+      const products = await ProductService.all();
+
+      expect(products).to.be.deep.equal(all);
+    });
+
+    it('os objetos possuem duas propriedades', async () => {
+      const products = await ProductService.all();
+
+      products.forEach((product) => {
+        expect(product).to.be.an('object');
+        expect(Object.keys(product)).to.have.lengthOf(2);
+      })
+    });
+  })
+})

@@ -1,44 +1,49 @@
-const { expect } = require("chai");
-const sinon = require("sinon");
+const { expect } = require('chai');
+const Sinon = require('sinon');
 
+const connection = require('../../../connection/connect');
 const Product = require('../../../models/Product');
-const Connection = require('../../../connection/connect');
 
-const expectedProducts = [
-  {
+describe.only('[PRODUCT: model]', () => {
+  const payload = [
+    {
       "id": 1,
-      "name": "Maçã do amor"
-  },
-  {
+      "name": "Martelo de Thor"
+    },
+    {
       "id": 2,
-      "name": "Traje de coelho"
-  },
-  {
+      "name": "Traje de encolhimento"
+    },
+    {
       "id": 3,
-      "name": "Capitão Brasil"
-  }
-];
+      "name": "Escudo do Capitão América"
+    },
+  ];
 
+  beforeEach(() => Sinon.stub(connection, 'execute').resolves(payload));
+  afterEach(() => connection.execute.restore());
 
-describe("[MODEL: Product] Validando o retorno das querys", () => {
-  afterEach(() => Connection.execute.restore())
+  describe('[GET, "/products"]', () => {
+    it('é executada uma query, selecionando todas as colunas na tabela StoreManage.products', async () => {
+      const query = 'SELECT * FROM StoreManager.products';
+        
+      await Product.all();
+      
+      expect(connection.execute.calledWith(query)).to.be.equal(true);
+    });
 
-  it("Será retornado um array com todos os Produtos cadastrados", async () => {
-    sinon.stub(Connection, "execute").resolves(expectedProducts);
+    it('será retornado um array com vários objetos', async () => {
+      const products = await Product.all();
+
+      expect(products).to.be.an('array');
+      products.forEach((product) => expect(product).to.be.an('object'));
+    });
     
-    const response = await Product.all();
-    
-    response.forEach((e) => expect(e).to.be.an("object"));
-    expect(response).to.be.deep.eq(expectedProducts);
-  });
-
-  it('O id e o nome será retornado ao criar o novo produto', async () => {
-    const mockIts = [{ id: 3, name: 'test' }];
-
-    sinon.stub(Connection, "execute").resolves(mockIts);
-
-    const response = await Product.create('test')
-
-    expect(response).to.be.deep.eq(mockIts)
+    it('cada objeto dentro do array possui as propriedades "id" e "name"', async () => {
+      const products = await Product.all();
+      
+      products.forEach((product) => expect(product).to.have.keys('id', 'name'));
+    });
   });
 });
+

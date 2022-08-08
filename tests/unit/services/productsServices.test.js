@@ -7,13 +7,14 @@ const ProductModel = require('../../../models/Product');
 const all = require('../../mocks/all');
 
 describe.only('[PRODUCT: service]', () => {
-  before(() => {
-    Sinon.stub(ProductModel, 'all').resolves([all, []])
-  });
-
-  after(() => ProductModel.all.restore());
   
   describe('[GET, "/products"]', () => {
+    beforeEach(() => {
+      Sinon.stub(ProductModel, 'all').resolves([all, []])
+    });
+  
+    afterEach(() => ProductModel.all.restore());
+    
     it('será retornado um array', async () => {
       const products = await ProductService.all();
 

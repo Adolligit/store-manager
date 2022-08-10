@@ -1,10 +1,11 @@
 const { expect } = require('chai');
 const Sinon = require('sinon');
+const connect = require('../../../connection/connect');
 
 const connection = require('../../../connection/connect');
 const Product = require('../../../models/Product');
 
-const { all, byId, create, update } = require('../../mocks/Products');
+const { all, byId, create, update, query: search } = require('../../mocks/Products');
 
 describe('(PRODUCT: MODEL)', () => {
 
@@ -94,6 +95,68 @@ describe('(PRODUCT: MODEL)', () => {
     })
   });
 
+  describe('[GET, "/products/search?"]', () => {
+    describe('Independente do termo pesquisado:', () => {  
+      beforeEach(() => Sinon.stub(connection, 'execute').resolves([search, []]));
+
+      it('a query específica é executada', async () => {
+        const query = 'SELECT * FROM StoreManager.products WHERE name LIKE ?';
+        
+        await Product.query('x');
+        
+        expect(connection.execute.calledWith(query)).is.true;
+      });
+    
+      it('o retorno da função será um array com dois valores', async () => {
+        const result = await Product.query('x');
+        
+        expect(result).to.has.lengthOf(2);
+      });
+
+      it('ambos os valores dentro do retorno são arrays', async () => {
+        const result = await Product.query("x");
+        
+        /*
+          Colocar o indice diretamente facilita para diagnoticar uma possível falha. Se eu usasse um forEach, não saberia qual
+          indice teria falhado. Teria que refatorar com algum console.log
+          para saber qual objeto não passou na avaliação.
+        */
+       expect(result[0]).to.be.a("array");
+       expect(result[1]).to.be.a("array");
+      });
+    });
+    
+    describe('Termo da pesquisa corresponde:', () => {
+      beforeEach(() => Sinon.stub(connection, 'execute').resolves([search, []]));
+
+      it('há um objeto com dois valores dentro do array', async () => {
+        const [result] = await Product.query('x');
+  
+        expect(result[0]).to.be.an('object');
+      });
+
+      it('é retornado um produto quando pesquisado o termo "x"', async () => {
+        const [result] = await Product.query('x');
+
+        expect(result).to.be.deep.equal(search);
+      });
+    });
+
+    describe('Termo da pesquisa não corresponde:', () => {
+      beforeEach(() => Sinon.stub(connection, "execute").resolves([[], []]));
+      
+      it('dois arrays vazios serão retornados', async () => {
+        const result = await Product.query('x');
+
+        expect(result[0]).to.be.an('array');
+        expect(result[1]).to.be.an('array');
+        expect(result).to.has.lengthOf(2);
+        expect(result).to.be.deep.equal([[], []]);
+        result.forEach((value) => expect(value).to.be.empty);
+      });
+    });
+  });
+
   describe('[POST, "/products"]', () => {
     beforeEach(() => Sinon.stub(connection, 'execute').resolves());
 
@@ -147,7 +210,7 @@ describe('(PRODUCT: MODEL)', () => {
       const query = "DELETE FROM StoreManager.products WHERE id = ?";
 
       await Product.remove(3);
-
+      
       expect(connection.execute.calledWith(query)).is.true;
     });
 
@@ -157,7 +220,4 @@ describe('(PRODUCT: MODEL)', () => {
       expect(result).to.be.undefined;
     });
   });
-
-  
 });
-

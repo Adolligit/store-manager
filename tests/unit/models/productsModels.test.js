@@ -4,11 +4,11 @@ const Sinon = require('sinon');
 const connection = require('../../../connection/connect');
 const Product = require('../../../models/Product');
 
-const { all, byId } = require('../../mocks/Products');
+const { all, byId, create, update } = require('../../mocks/Products');
 
-describe('[PRODUCT: model]', () => {
+describe('(PRODUCT: MODEL)', () => {
 
-  afterEach(() => connection.execute.restore());
+  afterEach(() => Sinon.restore());
   
   describe('[GET, "/products"]', () => {
     beforeEach(() => Sinon.stub(connection, 'execute').resolves([all, []]));
@@ -92,6 +92,70 @@ describe('[PRODUCT: model]', () => {
         expect(product).to.be.empty;
       });
     })
+  });
+
+  describe('[POST, "/products"]', () => {
+    beforeEach(() => Sinon.stub(connection, 'execute').resolves());
+
+    it('uma query específica é executada', async () => {
+      const query = "INSERT INTO StoreManager.products VALUE(null, ?)";
+
+      await Product.create(create.name);
+
+      expect(connection.execute.calledWith(query)).is.true;
+    });
+
+    it('nada será retornado ao cria um produto', async () => {
+      const response = await Product.create(create.name);
+
+      expect(response).to.be.undefined;
+    });
+  });
+
+  describe('[PUT, "/products/:id"]', () => {
+    let connect;
+    const { id, name } = update;
+
+    beforeEach(() => {
+      connect = Sinon.stub(connection, 'execute');
+      connect.resolves();
+    });
+
+    it('a query de "UPDATE" é executada', async () => {
+      const query = "UPDATE StoreManager.products";
+      
+      await Product.update(id, name);
+
+      const firstParam = connect.getCall(0).args[0];
+        
+      expect(firstParam.includes(query)).is.true;
+    });
+
+    it('será retornado "undefined" quando o produto for atualizado', async () => {
+      const result = await Product.update(id, name);
+      
+      expect(result).to.be.undefined;
+    });
+  });
+
+  describe('[DELETE, "/products/:id"]', () => {
+    beforeEach(() => {
+      Sinon.stub(connection, 'execute').resolves();
+    });
+
+    it('a query "DELETE" será executada', async () => {
+      const query = "DELETE FROM StoreManager.products WHERE id = ?";
+
+      await Product.remove(3);
+
+      expect(connection.execute.calledWith(query)).is.true;
+    });
+
+    it('"undefined" será retornado quando o produto for deletado', async () => {
+      const result = await Product.remove(3);
+
+      expect(result).to.be.undefined;
+    });
   });
 
 });

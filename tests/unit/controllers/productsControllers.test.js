@@ -3,12 +3,11 @@ const { expect } = require("chai");
 
 const ProductService = require('../../../services/Product');
 const ProductController = require('../../../controllers/Product');
-const ControllerErrorHandler = require('../../../Errors/ControllerErrorHandler');
 
 const { all, byId } = require('../../mocks/Products');
 const { notFound } = require('../../mocks/Errors');
 
-describe('[PRODUCT: controller]', () => {
+describe('(PRODUCT: CONTROLLER)', () => {
   const response = {};
   const request = {};
   
@@ -36,12 +35,12 @@ describe('[PRODUCT: controller]', () => {
     });
   });
 
-  describe.only('[GET, "/products/:id"]', () => {
-    
+  describe('[GET, "/products/:id"]', () => {
+
     describe('Independente do retorno:', () => {
-      Sinon.stub(ProductService, 'byId').resolves(byId[0]);
-      
       it('as funções "status", "json" e são executadas', async () => {
+        Sinon.stub(ProductService, 'byId').resolves(byId[0]);
+
         await ProductController.byId(request, response);
         
         expect(response.status.called).to.be.true;
@@ -65,26 +64,36 @@ describe('[PRODUCT: controller]', () => {
       });
     });
     
-    describe.skip('Produto não retornado:', () => {
+    describe('Produto não retornado:', () => {
       beforeEach(() => {
         Sinon.stub(ProductService, 'byId').resolves(notFound);
-        // Sinon.stub(ControllerErrorHandler, 'arguments').returns(response);
+      });
+      
+      it('será lançado um erro', async () => {
+        try {
+          await ProductController.byId(request, response);
+        } catch (error) {
+          expect(error).to.be.an('error');
+        }
+      });
+      
+      it('a mensagem "Product not found" será retornada', async () => {
+        try {
+          await ProductController.byId(request, response);
+        } catch ({ message }) {
+          expect(message).to.be.a('string');
+          expect(message).to.be.deep.equal('Product not found');
+        }
       });
 
-      it('Um erro será lançado', async () => {
-        const arrow = await function () { throw new Error('test') };
-
-        expect(arrow).to.be.rejectedWith(new Error('test'));
-        // expect(await ProductController.byId(request, response)).to.throw(
-        //   new Error("Product not found")
-        // );
+      it('na causa do erro esta presente o "status" 404', async () => {
+        try {
+          await ProductController.byId(request, response);
+        } catch ({ cause: { status }  }) {
+          expect(status).to.be.a('number');
+          expect(status).to.be.deep.equal(404);
+        }
       });
-
-      it('a função "status" é executada com o valor 400', async () => {
-        await ProductController.byId(request, response);
-        
-        expect(response.status.calledWith(400)).is.true;
-      });
-    })
+    });
   });
 });

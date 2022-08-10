@@ -8,7 +8,7 @@ const ServiceErrorHandler = require("../../../Errors/ServiceErrorHandler");
 const { all, byId } = require('../../mocks/Products');
 const { notFound } = require('../../mocks/Errors');
 
-describe('[PRODUCT: service]', () => {
+describe('(PRODUCT: SERVICE)', () => {
   describe('[GET, "/products"]', () => {
     beforeEach(() => {
       Sinon.stub(ProductModel, 'all').resolves([all, []])

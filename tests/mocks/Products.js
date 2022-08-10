@@ -19,4 +19,10 @@ module.exports = {
       name: "Escudo do Capitão América",
     },
   ],
+  create: {
+    "name": "ProductX",
+  },
+  update: {
+    "name": "Martelo do Batman",
+  },
 };

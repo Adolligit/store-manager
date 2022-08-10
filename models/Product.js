@@ -17,7 +17,7 @@ function create(name) {
 }
 
 const update = (id, name) => connection.execute(
-  ` UPDATE StoreManager.products 
+  ` UPDATE StoreManager.products
     SET name = ?
     WHERE id = ?`,
   [name, id],

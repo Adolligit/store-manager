@@ -213,7 +213,6 @@ describe('(PRODUCT: SERVICE)', () => {
       describe('produto inexistente', () => {
         beforeEach(() => {
           Sinon.stub(ProductModel, "byId").resolves([[], []]);
-          Sinon.stub(ServiceErrorHandler, 'arguments').returns(notFound);
         });
         
         it('será retornado um objeto com 3 propriedades', async () => {

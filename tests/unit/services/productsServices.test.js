@@ -236,4 +236,75 @@ describe('(PRODUCT: SERVICE)', () => {
       });
     });
   });
+
+  describe('[DELETE, "/products/:id"]', () => {
+    describe('ID existente', () => {
+      beforeEach(() =>{
+        Sinon.stub(ProductModel, 'byId').resolves([[byId], []]);
+      });
+      
+      it('"model.byId" é executada pelo menos uma vez', async () => {
+        await ProductService.remove(3);
+
+        expect(ProductModel.byId.calledOnce).is.true;
+      });
+
+      it('"model.byId" recebe o mesmo parâmetro "id" da "service.remove"', async () => {
+        const id = 3;
+
+        await ProductService.remove(id);
+        
+        expect(ProductModel.byId.calledWith(3)).is.true;
+      });
+
+      it("será retornado um array com dois valores", async () => {
+        const result = await ProductService.remove(3);
+
+        expect(result).to.lengthOf(2);
+      });
+
+      it('dentro do array, os dois valores são: "objeto" e "undefined"', async () => {
+        const result = await ProductService.remove(3);
+
+        expect(result[0]).to.be.an("object");
+        expect(result[1]).to.be.undefined;
+      });
+    });
+    
+    describe('ID inexistente', () => {
+      beforeEach(() => {
+        Sinon.stub(ProductModel, 'byId').resolves([[], []]);
+      });
+
+      it('o retorno será um objeto com 3 propriedades', async () => {
+        const result = await ProductService.remove(3);
+
+        expect(Object.keys(result)).to.have.lengthOf(3);
+      });
+      
+      it('as três propriedades são "statusCode", "error" e "message"', async () => {
+        const result = await ProductService.remove(3);
+  
+        expect(result).to.have.keys('statusCode', 'error', 'message');
+      });
+      
+      it('o valor da "statusCode" é 404', async () => {
+        const { statusCode } = await ProductService.remove(3);
+  
+        expect(statusCode).to.be.equal(404);
+      });
+      
+      it('o valor da "message" é "Product not found"', async () => {
+        const { message } = await ProductService.remove(3);
+  
+        expect(message).to.be.equal('Product not found');
+      });
+      
+      it('o objeto retornado é correspondente', async () => {
+        const result = await ProductService.remove(3);
+  
+        expect(result).to.be.deep.equal(notFound);
+      });
+    });
+  });
 });

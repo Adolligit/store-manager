@@ -117,7 +117,7 @@ describe('(PRODUCT: CONTROLLER)', () => {
       it('dentro do objeto "request" há outro chamado "query"', async () => {
         await ProductController.query(request, response);
 
-        expect(request).to.be.have
+        expect(request).to.be
       });
     });
 

@@ -4,7 +4,7 @@ const { expect } = require("chai");
 const ProductService = require('../../../services/Product');
 const ProductController = require('../../../controllers/Product');
 
-const { all, byId } = require('../../mocks/Products');
+const { all, byId, query } = require('../../mocks/Products');
 const { notFound } = require('../../mocks/Errors');
 
 describe('(PRODUCT: CONTROLLER)', () => {
@@ -15,6 +15,7 @@ describe('(PRODUCT: CONTROLLER)', () => {
     response.status = Sinon.stub().returns(response);
     response.json = Sinon.stub().returns();
     response.locals = { id: 3 };
+    request.query = { q: 'x' };
   });
 
   afterEach(() => Sinon.restore());
@@ -36,9 +37,8 @@ describe('(PRODUCT: CONTROLLER)', () => {
   });
 
   describe('[GET, "/products/:id"]', () => {
-
     describe('Independente do retorno:', () => {
-      it('as funções "status", "json" e são executadas', async () => {
+      it('as funções "status" e "json" são executadas', async () => {
         Sinon.stub(ProductService, 'byId').resolves(byId[0]);
 
         await ProductController.byId(request, response);
@@ -95,5 +95,68 @@ describe('(PRODUCT: CONTROLLER)', () => {
         }
       });
     });
+  });
+
+  describe('[GET, "/products/search?"]', () => {
+    describe('Independente do termo pesquisado:', () => {
+      beforeEach(() => Sinon.stub(ProductService, "query").resolves(query));
+
+      it('as funções "status" e "json" são executadas', async () => {
+        await ProductController.query(request, response);
+
+        expect(response.status.called).to.be.true;
+        expect(response.json.called).to.be.true;
+      });
+
+      it('a função "status" é executado com 200', async () => {
+        await ProductController.query(request, response);
+
+        expect(response.status.calledWith(200)).is.true;
+      });
+
+      it('dentro do objeto "request" há outro chamado "query"', async () => {
+        await ProductController.query(request, response);
+
+        expect(request).to.be.have
+      });
+    });
+
+    describe('Termo da pesquisa corresponde:', () => {
+      beforeEach(() => Sinon.stub(ProductService, "query").resolves(query));
+      
+      it('a função "service.query" é executa pelo menos uma vez', async () => {
+        await ProductController.query(request, response);
+
+        expect(ProductService.query.calledOnce).is.true;
+      });
+      
+      it('a função "json" é executada com retorno da pesquisa', async () => {
+        await ProductController.query(request, response);
+  
+        expect(response.json.calledWith(query)).is.true;
+      });
+
+      it('o parâmetro de "json" possui o(s) produto(s) pesquisado(s)', async () => {
+        await ProductController.query(request, response);
+        
+        const paramJson = response.json.getCall(0).args[0];
+
+        expect(paramJson).to.be.deep.equal(query);
+      });
+    });
+
+    describe('Termo da pesquisa não corresponde:', () => {
+      beforeEach(() => Sinon.stub(ProductService, "query").resolves(all));
+      
+      it('"json" é executado com todos os produtos', async () => {
+        await ProductController.query(request, response);
+  
+        expect(response.json.calledWith(all)).is.true;
+      });
+    });
+  });
+
+  describe('[POST, "/products"]', () => {
+    
   });
 });

@@ -10,7 +10,9 @@
 ## Como eu faço para executar este projeto?
 
 **⚠️ ATENÇÃO ⚠️**
+<p align="justify">
 É crucial que você já tenha em sua máquina as seguintes ferramentas, com a versão especificada, ou superior:
+</p>
 
 - Node.js: v16;
 - Docker: v20.10;

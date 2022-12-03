@@ -98,5 +98,7 @@ npm run migration
 
 ## Agradecimento
 <p align="justify">
-Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a ténica de TDD, cobrindo parte do desenvolvimento com testes unitários. E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a @tryber pelo cuidado em ensinar para nós alunos, a como colocar em prática nossos conhecimentos de programação. 
+Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a ténica de TDD, cobrindo parte do desenvolvimento com testes unitários.<br>
+
+E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a [@tryber](https://github.com/tryber) pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. 
 </p>

@@ -75,12 +75,25 @@ cd store-manager/
     npm install
   ```
   ---
-<details>
+</details>
 
-1. npm run migration
-2. npm run seed
-3. npm start (em produção) | npm run debug (em desenvolvimento)
-
+4. Crie as tabelas do banco de dados:
+```bash
+npm run migration
+```
+5. Popule o banco de dados:
+```bash
+  npm run seed
+```
+6. Inicie o projeto (escolha um dos comandos abaixo): 
+  - Em modo de produção:
+    ```bash
+      npm start
+    ```
+  - Em modo de desenvolvimento (com *nodemon*):
+    ```bash
+       npm run debug 
+    ```
 
 ## Linguagens e ferramentas:
 <div>

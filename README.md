@@ -52,14 +52,14 @@
     touch .env
    ```
    - Exemplo de arquivo **.env** (o nome de cada chave deve ser exatamente como esta declarado):
-      ~~~~
+      ```bash
         MYSQL_HOST=localhost
         MYSQL_PORT=3306
         MYSQL_USER=nome_do_seu_usuário
         MYSQL_PASSWORD=sua_senha
         MYSQL_DATABASE=StoreManager
         APP_PORT=3000
-      ~~~~
+      ```
   3. Instale as dependências do projeto:
   ```bash
     npm install
@@ -84,6 +84,16 @@
     ```bash
       npm run debug 
     ```
+
+## Como eu posso executar os testes criados?
+
+<p align="justify">
+Considerando que você já fez todos os passos anteriores e o ambiente que você escolheu para executar o <b>Store Manager</b>, já esteja todo configurado, para você executar os testes, basta executar o seguinte comando:
+</p>
+
+```bash
+  npm run test:mocha
+```
 
 ## Linguagens e ferramentas:
 <div>

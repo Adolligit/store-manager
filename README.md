@@ -26,9 +26,9 @@
 1. Faça o clone do projeto e entre na pasta:
 
 ```bash
-git clone git@github.com:Adolligit/store-manager.git
+  git clone git@github.com:Adolligit/store-manager.git
 
-cd store-manager/
+  cd store-manager/
 ```
 <details>
   <summary>Instalar com Docker 🐳</summary><br>
@@ -39,7 +39,7 @@ cd store-manager/
   ```
   3. Entre no contêiner da aplicação:
   ```bash
-   docker exec -it store_manager bash
+    docker exec -it store_manager bash
   ```
   ---
 </details>
@@ -69,7 +69,7 @@ cd store-manager/
 
 4. Crie as tabelas do banco de dados:
 ```bash
-npm run migration
+  npm run migration
 ```
 5. Popule o banco de dados:
 ```bash
@@ -82,7 +82,7 @@ npm run migration
     ```
   - Em modo de desenvolvimento (com *nodemon*):
     ```bash
-       npm run debug 
+      npm run debug 
     ```
 
 ## Linguagens e ferramentas:

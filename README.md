@@ -1,8 +1,11 @@
 <h1 align="center">Store Manager</h1>
 
-Store Manager é uma API Rest que busca simular o gerenciamento de dados de uma loja. 
-
-Esta API foi construída em **Node.js** junto ao **Express.js** sendo que sua cobertura de teste unitários foi realizada em **Mocha**, **Chai** e **Sinon**. Para consultar os dados no banco, foram feitas query's diretamente no código (**"hardcoded"**), sendo que elas e a estrutura do banco de dados, foram criados em MySQL.
+<p align="justify">
+  Store Manager é uma API Rest que busca simular o gerenciamento de dados de uma loja.
+</p>
+<p align="justify">
+  Esta API foi construída em <b>Node.js</b> junto ao <b>Express.js</b> sendo que sua cobertura de teste unitários foi realizada em <b>Mocha</b>, <b>Chai</b> e <b>Sinon</b>. Para consultar os dados no banco, foram feitas query's diretamente no código (<b>"hardcoded"</b>), sendo que elas e a estrutura do banco de dados, foram criados em MySQL.
+</p>
 
 ## Linguagens e ferramentas:
 <div>

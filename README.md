@@ -31,32 +31,55 @@
 - MySQL: v8;
 ---
 
-Faça o clone do projeto e entre na pasta:
+**INSTALAÇÃO**
+
+1. Faça o clone do projeto e entre na pasta:
 
 ```bash
 git clone git@github.com:Adolligit/store-manager.git
 
 cd store-manager/
 ```
-com docker:
-1. docker-compose up -d
-2. docker exec -it store_manager bash
+<details>
+  <summary>Instalar com Docker 🐳</summary><br>
 
-sem docker:
-1. touch .env:
-	- mostrar um exemplo
-	MYSQL_HOST=localhost
-	MYSQL_PORT=3306
-	MYSQL_USER=nome_do_seu_usuário
-	MYSQL_PASSWORD=sua_senha
-	MYSQL_DATABASE=StoreManager
-	APP_PORT=3000
-2. npm install
+  2. Crie e inicie os contêiners:
+  ```bash
+    docker-compose up -d
+  ```
+  3. Entre no contêiner da aplicação:
+  ```bash
+   docker exec -it store_manager bash
+  ```
+  ---
+</details>
 
+<details>
+  <summary>Instalar localmente 💻</summary><br>
 
-3. npm run migration
-4. npm run seed
-5. npm start (em produção) | npm run debug (em desenvolvimento)
+  2. Crie um arquivo **.env** na pasta raiz e declare as variáveis de ambiente:
+   ```bash
+    touch .env
+   ```
+   - Exemplo de arquivo **.env** (o nome de cada chave deve ser exatamente como esta declarado):
+      ~~~~
+        MYSQL_HOST=localhost
+        MYSQL_PORT=3306
+        MYSQL_USER=nome_do_seu_usuário
+        MYSQL_PASSWORD=sua_senha
+        MYSQL_DATABASE=StoreManager
+        APP_PORT=3000
+      ~~~~
+  3. Instale as dependências do projeto:
+  ```bash
+    npm install
+  ```
+  ---
+<details>
+
+1. npm run migration
+2. npm run seed
+3. npm start (em produção) | npm run debug (em desenvolvimento)
 
 
 ## Linguagens e ferramentas:

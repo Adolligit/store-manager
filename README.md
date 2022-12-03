@@ -1,11 +1,63 @@
-<h1 align="center">Store Manager</h1>
+<style>
+  h1 { text-align: center; }
 
-<p align="justify">
+  p { text-align: justify; }
+
+  #crucial[open] > summary {
+      list-style-type: '⚠️';
+      font-weight: 900;
+  }
+  
+</style>
+
+<h1>Store Manager</h1>
+
+<p>
   Store Manager é uma API Rest que busca simular o gerenciamento de dados de uma loja.
 </p>
-<p align="justify">
+<p>
   Esta API foi construída em <b>Node.js</b> junto ao <b>Express.js</b> sendo que sua cobertura de teste unitários foi realizada em <b>Mocha</b>, <b>Chai</b> e <b>Sinon</b>. Para consultar os dados no banco, foram feitas query's diretamente no código (<b>"hardcoded"</b>), sendo que elas e a estrutura do banco de dados, foram criados em MySQL.
 </p>
+
+## Como eu faço para executar este projeto?
+
+**⚠️ ATENÇÃO ⚠️**
+É crucial que você já tenha em sua máquina as seguintes ferramentas, com a versão especificada, ou superior:
+
+- Node.js: v16;
+- Docker: v20.10;
+- docker-compose: v1.29;
+- npm: v8.19;
+- MySQL: v8;
+---
+
+Faça o clone do projeto e entre na pasta:
+
+```bash
+git clone git@github.com:Adolligit/store-manager.git
+
+cd store-manager/
+```
+com docker:
+1. docker-compose up -d
+2. docker exec -it store_manager bash
+
+sem docker:
+1. touch .env:
+	- mostrar um exemplo
+	MYSQL_HOST=localhost
+	MYSQL_PORT=3306
+	MYSQL_USER=nome_do_seu_usuário
+	MYSQL_PASSWORD=sua_senha
+	MYSQL_DATABASE=StoreManager
+	APP_PORT=3000
+2. npm install
+
+
+3. npm run migration
+4. npm run seed
+5. npm start (em produção) | npm run debug (em desenvolvimento)
+
 
 ## Linguagens e ferramentas:
 <div>

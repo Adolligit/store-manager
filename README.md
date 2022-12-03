@@ -95,3 +95,8 @@ npm run migration
     <a href="https://dev.mysql.com/doc/"><img align="center" alt="NodeJs" height="45" width="66" src="https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png"></a>
     <a href="https://docs.docker.com/"><img align="center" alt="NodeJs" height="45" width="45" src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"></a>
 </div>
+
+## Agradecimento
+<p align="justify">
+Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a ténica de TDD, cobrindo parte do desenvolvimento com testes unitários. E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a @tryber pelo cuidado em ensinar para nós alunos, a como colocar em prática nossos conhecimentos de programação. 
+</p>

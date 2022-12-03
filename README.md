@@ -1,8 +1,9 @@
 <h1 align="center">Store Manager</h1>
 
 <p align="justify">
-  Store Manager é uma API Rest que busca simular o gerenciamento de dados de uma loja.<br>
-
+  Store Manager é uma API Rest que busca simular o gerenciamento de dados de uma loja.
+</p>
+<p align="justify">
   Esta API foi construída em <b>Node.js</b> junto ao <b>Express.js</b> sendo que sua cobertura de teste unitários foi realizada em <b>Mocha</b>, <b>Chai</b> e <b>Sinon</b>. Para consultar os dados no banco, foram feitas query's diretamente no código (<b>"hardcoded"</b>), sendo que elas e a estrutura do banco de dados, foram criados em MySQL.
 </p>
 
@@ -97,7 +98,9 @@ npm run migration
 
 ## Agradecimento
 <p align="justify">
-Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a ténica de TDD, cobrindo parte do desenvolvimento com testes unitários.<br>
+Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a ténica de <b>TDD</b>, cobrindo parte do desenvolvimento com testes unitários.
+</p>
 
-E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a [@tryber](https://github.com/tryber) pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. 
+<p align="justify">
+E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a <a href="https://github.com/tryber">@tryber</a> pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. 
 </p>

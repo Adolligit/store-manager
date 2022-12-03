@@ -1,15 +1,3 @@
-<style>
-  h1 { text-align: center; }
-
-  p { text-align: justify; }
-
-  #crucial[open] > summary {
-      list-style-type: '⚠️';
-      font-weight: 900;
-  }
-  
-</style>
-
 <h1>Store Manager</h1>
 
 <p>

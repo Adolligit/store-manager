@@ -1,3 +1,6 @@
+
+<img src="css.svg" width="400" height="400" alt="css-in-readme">
+
 <h1>Store Manager</h1>
 
 <p>

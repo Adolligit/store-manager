@@ -88,7 +88,7 @@
 ## Como eu posso executar os testes criados?
 
 <p align="justify">
-Considerando que você já fez todos os passos anteriores e o ambiente que você escolheu para executar o <b>Store Manager</b>, já esteja todo configurado, para você executar os testes, basta executar o seguinte comando:
+Considerando que você já fez todos os passos anteriores e o ambiente que você escolheu para executar o <b>Store Manager</b>, já está todo configurado, então, para você visualizar a cobertura de testes, basta executar o seguinte comando:
 </p>
 
 ```bash

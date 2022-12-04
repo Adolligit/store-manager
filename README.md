@@ -85,6 +85,12 @@
       npm run debug 
     ```
 
+## Quais são as rotas desta API?
+Após ter instalado corretamente o Store Manager, agora é hora de você testar as rotas. Para isso, deixei uma documentação feita com **[Swagger UI](https://swagger.io/tools/swagger-ui/)** para facilitar e lhe orientar no uso da API.
+
+Para acessar a documentação, basta navegar até a seguinte rota: 
+> [http://localhost:3000/documentation](http://localhost:3000/documentation/)
+
 ## Como eu posso executar os testes criados?
 
 <p align="justify">

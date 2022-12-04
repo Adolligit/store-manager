@@ -26,14 +26,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": { "type": "number" },
-                      "name": { "type": "string" }
-                    }
-                  }
+                  "$ref": "#/components/schemas/GetAllProducts"
                 },
                 "example": [
                   {
@@ -58,7 +51,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Product"
+                "$ref": "#/components/schemas/CreateProduct"
               },
               "examples": {
                 "insert_new_product": {
@@ -130,16 +123,56 @@
           }
         }
       }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Retorna o produto do referente ID informado",
+        "description": "Esta rota retornará todos os produtos cadastrados",
+        "tags":["Products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Buscar produto pelo ID",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getById"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "Product": {
+      "CreateProduct": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string"
           }
+        }
+      },
+      "getById": {
+        "type": "object",
+          "properties": {
+            "id": { "type": "number" },
+            "name": { "type": "string" }
+          }
+      },
+      "GetAllProducts": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/getById"
         }
       },
       "ErrorMessage": {

@@ -1,0 +1,128 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Store Manager",
+    "description": "O projeto tem objetivo de simular o gerenciamento de dados de uma loja fictícia, atráves da criação de uma API (esta api)",
+    "termsOfService": "http://localhost:3000/terms",
+    "contact": {
+      "email": "adelson.onod@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url":"http://localhost:3000/"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Retornar os itens",
+        "description": "Esta rota retornará todos os produtos cadastrados",
+        "tags":["Products"],
+        "requestBody":{
+          
+        }
+      },
+      "post": {
+        "summary": "Criar item",
+        "description": "Esta rota vai cadastrar no banco de dados os dados de um novo produto",
+        "tags":["Products"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "insert_new_product": {
+                  "value": {
+                    "name": "Capa do Batman"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200" : {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "id": 3,
+                  "name":"Coração do Robin"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description": "Erro de validação de dados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "examples": {
+                  "required": {
+                    "value": {
+                      "message": "\"name\" is required"
+                    }
+                  },
+                  "empty": {
+                    "value": {
+                      "message": "\"name\" is not allowed to be empty"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Os dados informados não seguem a regra necessária para criação de um novo produto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "\"name\" length must be at least 5 characters long"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorMessage": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+} 

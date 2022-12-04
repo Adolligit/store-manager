@@ -17,11 +17,37 @@
   "paths": {
     "/products": {
       "get": {
-        "summary": "Retornar os itens",
+        "summary": "Retorna todos os produtos",
         "description": "Esta rota retornará todos os produtos cadastrados",
         "tags":["Products"],
-        "requestBody":{
-          
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "number" },
+                      "name": { "type": "string" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Martelo de Thor"
+                  },
+                  {
+                      "id": 2,
+                      "name": "Traje de encolhimento"
+                  }
+                ]
+              }
+            }
+          }
         }
       },
       "post": {
@@ -46,6 +72,7 @@
         },
         "responses": {
           "200" : {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -67,7 +94,7 @@
             }
           },
           "400" : {
-            "description": "Erro de validação de dados",
+            "description": "Bad Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -89,7 +116,7 @@
             }
           },
           "422": {
-            "description": "Os dados informados não seguem a regra necessária para criação de um novo produto",
+            "description": "Unprocessable Entity",
             "content": {
               "application/json": {
                 "schema": {

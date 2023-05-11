@@ -26,20 +26,20 @@
 1. Faça o clone do projeto e entre na pasta:
 
 ```bash
-  git clone git@github.com:Adolligit/store-manager.git
+git clone git@github.com:Adolligit/store-manager.git
 
-  cd store-manager/
+cd store-manager/
 ```
 <details>
   <summary>Instalar com Docker 🐳</summary><br>
 
   2. Crie e inicie os contêiners:
   ```bash
-    docker-compose up -d
+  docker-compose up -d
   ```
   3. Entre no contêiner da aplicação:
   ```bash
-    docker exec -it store_manager bash
+  docker exec -it store_manager bash
   ```
   ---
 </details>
@@ -49,40 +49,40 @@
 
   2. Crie um arquivo **.env** na pasta raiz e declare as variáveis de ambiente:
    ```bash
-    touch .env
+   touch .env
    ```
    - Exemplo de arquivo **.env** (o nome de cada chave deve ser exatamente como esta declarado):
       ```bash
-        MYSQL_HOST=localhost
-        MYSQL_PORT=3306
-        MYSQL_USER=nome_do_seu_usuário
-        MYSQL_PASSWORD=sua_senha
-        MYSQL_DATABASE=StoreManager
-        APP_PORT=3000
+      MYSQL_HOST=localhost
+      MYSQL_PORT=3306
+      MYSQL_USER=nome_do_seu_usuário
+      MYSQL_PASSWORD=sua_senha
+      MYSQL_DATABASE=StoreManager
+      APP_PORT=3000
       ```
   ---
 </details>
 
 3. Instale as dependências do projeto:
   ```bash
-    npm install
+  npm install
   ```
 4. Crie as tabelas do banco de dados:
 ```bash
-  npm run migration
+npm run migration
 ```
 5. Popule o banco de dados:
 ```bash
-  npm run seed
+npm run seed
 ```
 6. Inicie o projeto (escolha um dos comandos abaixo): 
   - Em modo de produção:
     ```bash
-      npm start
+    npm start
     ```
   - Em modo de desenvolvimento (com *nodemon*):
     ```bash
-      npm run debug 
+    npm run debug 
     ```
 
 ## Quais são as rotas desta API?

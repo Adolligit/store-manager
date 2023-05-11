@@ -60,13 +60,13 @@
         MYSQL_DATABASE=StoreManager
         APP_PORT=3000
       ```
-  3. Instale as dependências do projeto:
-  ```bash
-    npm install
-  ```
   ---
 </details>
 
+3. Instale as dependências do projeto:
+  ```bash
+    npm install
+  ```
 4. Crie as tabelas do banco de dados:
 ```bash
   npm run migration

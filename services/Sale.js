@@ -1,4 +1,4 @@
-const ServiceErrorHandler = require('../Errors/ServiceErrorHandler');
+const ServiceErrorHandler = require('../errors/ServiceErrorHandler');
 const Sale = require('../models/Sale');
 const Product = require('./Product');
 

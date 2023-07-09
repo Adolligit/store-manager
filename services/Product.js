@@ -1,4 +1,4 @@
-const ServiceErrorHandler = require('../Errors/ServiceErrorHandler');
+const ServiceErrorHandler = require('../errors/ServiceErrorHandler');
 const Product = require('../models/Product');
 
 async function all() {

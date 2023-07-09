@@ -2,7 +2,7 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
-const ControllerErrorHandler = require('./Errors/ControllerErrorHandler');
+const ControllerErrorHandler = require('./errors/ControllerErrorHandler');
 const Product = require('./routes/Product');
 const Sale = require('./routes/Sale');
 

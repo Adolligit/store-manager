@@ -91,6 +91,8 @@ Após ter instalado corretamente o Store Manager, agora é hora de você testar 
 Para acessar a documentação, basta navegar até a seguinte rota: 
 > [http://localhost:3000/documentation](http://localhost:3000/documentation/)
 
+<img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
+
 ## Como eu posso executar os testes criados?
 
 <p align="justify">

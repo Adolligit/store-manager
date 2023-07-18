@@ -2,9 +2,9 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
-const ControllerErrorHandler = require('./errors/ControllerErrorHandler');
-const Product = require('./routes/Product');
-const Sale = require('./routes/Sale');
+const ControllerErrorHandler = require('./errors/controller-error-handler');
+const Product = require('./routes/product.route');
+const Sale = require('./routes/sale.route');
 
 const app = express();
 const endpoints = ['/products', '/sales'];

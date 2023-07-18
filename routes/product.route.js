@@ -1,8 +1,8 @@
 const express = require('express');
-const Product = require('../controllers/Product');
-const verifyId = require('../middlewares/Product/verifyId');
-const verifyName = require('../middlewares/Product/verifyName');
-const useRescue = require('../utils/useRescue');
+const Product = require('../controllers/product.controller');
+const verifyId = require('../middlewares/Product/verify-id');
+const verifyName = require('../middlewares/Product/verify-name');
+const useRescue = require('../utils/use-rescue');
 
 const router = express.Router();
 

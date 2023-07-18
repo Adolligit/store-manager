@@ -1,5 +1,5 @@
-const ServiceErrorHandler = require('../errors/ServiceErrorHandler');
-const Product = require('../models/Product');
+const ServiceErrorHandler = require('../errors/service-error-handler');
+const Product = require('../models/product.model');
 
 async function all() {
   const [products] = await Product.all();

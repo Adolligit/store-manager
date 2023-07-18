@@ -1,6 +1,6 @@
-const ServiceErrorHandler = require('../errors/ServiceErrorHandler');
-const Sale = require('../models/Sale');
-const Product = require('./Product');
+const ServiceErrorHandler = require('../errors/service-error-handler');
+const Sale = require('../models/sale.model');
+const Product = require('./product.service');
 
 async function createSales() {
   const [{ insertId }] = await Sale.createSales();

@@ -53,11 +53,14 @@ cd store-manager/
    ```
    - Exemplo de arquivo **.env** (o nome de cada chave deve ser exatamente como esta declarado):
       ```bash
-      MYSQL_HOST=localhost
+      # db
+      MYSQL_HOST=127.0.0.1
       MYSQL_PORT=3306
-      MYSQL_USER=nome_do_seu_usuário
+      MYSQL_USER=nome_de_usuario
       MYSQL_PASSWORD=sua_senha
       MYSQL_DATABASE=StoreManager
+
+      # app
       APP_PORT=3000
       ```
   ---
@@ -89,7 +92,7 @@ npm run seed
 Após ter instalado corretamente o Store Manager, agora é hora de você testar as rotas. Para isso, deixei uma documentação feita com **[Swagger UI](https://swagger.io/tools/swagger-ui/)** para facilitar e lhe orientar no uso da API.
 
 Para acessar a documentação, basta navegar até a seguinte rota: 
-> [http://localhost:3000/documentation](http://localhost:3000/documentation/)
+> [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/)
 
 <img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
 
@@ -117,7 +120,7 @@ Considerando que você já fez todos os passos anteriores e o ambiente que você
 
 ## Agradecimento
 <p align="justify">
-Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a ténica de <b>TDD</b>, cobrindo parte do desenvolvimento com testes unitários.
+Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a técnica de <b>TDD</b>, cobrindo parte do desenvolvimento com testes unitários.
 </p>
 
 <p align="justify">

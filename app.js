@@ -13,7 +13,7 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
-app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(express.json());
 app.use(endpoints[0], Product);

@@ -44,27 +44,31 @@ Escolha uma das instalações a seguir:
 
 <details>
   <summary>Instalar localmente 💻</summary><br>
+</br><b>Requisitos</b>
+</br>Você deve possuir as seguintes ferramentas:
+<ul>
+    <li>Node.js: v16</li>
+    <li>npm: v8.19</li>
+    <li>MySQL: v8</li>
+</ul>
 
-  - Node.js: v16;
-- npm: v8.19;
-- MySQL: v8;
-
-  2. Crie um arquivo **.env** na pasta raiz e declare as variáveis de ambiente:
+  1. Crie um arquivo **.env** na pasta raiz e declare as variáveis de ambiente:
    ```bash
    touch .env
    ```
-   - Exemplo de arquivo **.env** (o nome de cada chave deve ser exatamente como esta declarado):
+   2. Copie e cole as informações a seguir:
       ```bash
       # db
       MYSQL_HOST=127.0.0.1
       MYSQL_PORT=3306
-      MYSQL_USER=nome_de_usuario
-      MYSQL_PASSWORD=sua_senha
+      MYSQL_USER=
+      MYSQL_PASSWORD=
       MYSQL_DATABASE=StoreManager
 
       # app
       APP_PORT=3000
       ```
+  3. Informe seus dados de acesso ao banco de dados MySQL nas chaves: **MYSQL_USER** e **MYSQL_PASSWORD**.
   ---
 </details>
 

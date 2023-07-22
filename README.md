@@ -24,8 +24,8 @@ Escolha uma das instalações a seguir:
 </p>
 <details>
   <summary>Instalar com Docker 🐳</summary>
-</br><b>Requisitos</b>
-</br>Você deve possuir as seguintes ferramentas:
+  <b>Requisitos</b>
+  <br>Você deve possuir as seguintes ferramentas:
 <ul>
     <li>Docker: v20.1</li>
     <li>Docker Compose: v1.29</li>
@@ -43,9 +43,9 @@ Escolha uma das instalações a seguir:
 </details>
 
 <details>
-  <summary>Instalar localmente 💻</summary><br>
-</br><b>Requisitos</b>
-</br>Você deve possuir as seguintes ferramentas:
+  <summary>Instalar localmente 💻</summary>
+  <b>Requisitos</b>
+  <br>Você deve possuir as seguintes ferramentas:
 <ul>
     <li>Node.js: v16</li>
     <li>npm: v8.19</li>
@@ -72,45 +72,35 @@ Escolha uma das instalações a seguir:
   ---
 </details>
 
-3. Instale as dependências do projeto:
+### Execução
+
+Instalar as dependências do projeto:
   ```bash
-  npm install
+npm install
   ```
-4. Crie as tabelas do banco de dados:
+Criar as tabelas no banco de dados MySQL:
 ```bash
 npm run migration
 ```
-5. Popule o banco de dados:
+Popular o banco de dados:
 ```bash
 npm run seed
 ```
-6. Inicie o projeto (escolha um dos comandos abaixo): 
-  - Em modo de produção:
-    ```bash
-    npm start
-    ```
-  - Em modo de desenvolvimento (com *nodemon*):
-    ```bash
-    npm run debug 
-    ```
-
-## Quais são as rotas desta API?
-Após ter instalado corretamente o Store Manager, agora é hora de você testar as rotas. Para isso, deixei uma documentação feita com **[Swagger UI](https://swagger.io/tools/swagger-ui/)** para facilitar e lhe orientar no uso da API.
-
-Para acessar a documentação, basta navegar até a seguinte rota: 
-> [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/)
-
-<img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
-
-## Como eu posso executar os testes criados?
-
-<p align="justify">
-Considerando que você já fez todos os passos anteriores e o ambiente que você escolheu para executar o <b>Store Manager</b>, já está todo configurado, então, para você visualizar a cobertura de testes, basta executar o seguinte comando:
-</p>
-
+Iniciar o projeto:
 ```bash
-  npm run test:mocha
+npm start
 ```
+Inciar o projeto em modo de desenvolvimento (nodemon):
+```bash
+npm run debug
+```
+Executar os a cobertura de testes:
+```bash
+npm run test:mocha
+```
+## Quais são as rotas desta API?
+Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/).
+<img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
 
 ## Linguagens e ferramentas:
 <div>

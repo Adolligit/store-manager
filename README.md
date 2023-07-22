@@ -9,29 +9,27 @@
 
 ## Como eu faço para executar este projeto?
 
-**⚠️ ATENÇÃO ⚠️**
-<p align="justify">
-É crucial que você já tenha em sua máquina as seguintes ferramentas, com a versão especificada, ou superior:
-</p>
-
-- Node.js: v16;
-- Docker: v20.10;
-- docker-compose: v1.29;
-- npm: v8.19;
-- MySQL: v8;
----
-
-**INSTALAÇÃO**
-
-1. Faça o clone do projeto e entre na pasta:
+Antes de mais nada, primeiro faça o clone e navegue até a pasta do projeto:
 
 ```bash
-git clone git@github.com:Adolligit/store-manager.git
-
-cd store-manager/
+git clone git@github.com:Adolligit/store-manager.git && cd store-manager/
 ```
+
+### Instalação
+
+<p align="justify">
+🚨É <b>crucial</b> que você já tenha em sua máquina as ferramentas citadas em cada tipo de instalação, com a correta versão ou superior.
+
+Escolha uma das instalações a seguir:
+</p>
 <details>
-  <summary>Instalar com Docker 🐳</summary><br>
+  <summary>Instalar com Docker 🐳</summary>
+</br><b>Requisitos</b>
+</br>Você deve possuir as seguintes ferramentas:
+<ul>
+    <li>Docker: v20.1</li>
+    <li>Docker Compose: v1.29</li>
+</ul>
 
   2. Crie e inicie os contêiners:
   ```bash
@@ -46,6 +44,10 @@ cd store-manager/
 
 <details>
   <summary>Instalar localmente 💻</summary><br>
+
+  - Node.js: v16;
+- npm: v8.19;
+- MySQL: v8;
 
   2. Crie um arquivo **.env** na pasta raiz e declare as variáveis de ambiente:
    ```bash

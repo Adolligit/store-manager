@@ -56,7 +56,7 @@ Escolha uma das instalações a seguir:
    ```bash
    touch .env
    ```
-   2. Copie e cole as informações a seguir:
+   2. Abra o arquivo **.env** e então copie e cole as informações a seguir:
       ```bash
       # db
       MYSQL_HOST=127.0.0.1
@@ -68,7 +68,7 @@ Escolha uma das instalações a seguir:
       # app
       APP_PORT=3000
       ```
-  3. Informe seus dados de acesso ao banco de dados MySQL nas chaves: **MYSQL_USER** e **MYSQL_PASSWORD**.
+  3. No arquivo **.env**, informe seus dados de acesso ao banco de dados MySQL nas chaves: **MYSQL_USER** e **MYSQL_PASSWORD** (lembre-se de salvar o arquivo).
   ---
 </details>
 
@@ -101,6 +101,11 @@ npm run test:mocha
 ## Quais são as rotas desta API?
 Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/).
 <img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
+
+## Erros comuns
+Descrevo neste tópico alguns possíveis erros que você pode esta enfrentando durante a instalação ou execução desta API.
+
+
 
 ## Linguagens e ferramentas:
 <div>

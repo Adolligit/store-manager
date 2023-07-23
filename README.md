@@ -106,7 +106,7 @@ npm run lint
 Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/).
 <img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
 
-## Erros comuns
+<!-- ## Erros comuns
 Descrevo neste tópico alguns possíveis erros que você pode esta enfrentando durante a instalação ou execução desta API.
 
 Antes de mostrar os erros, eu gostaria que você fizesse uma verificação baseada na lista de tarefas a seguir.
@@ -129,7 +129,7 @@ Escolha um dos tipos de instalação:
     <li><input type="checkbox">Eu tenho instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.</li>
     <li><input type="checkbox">Verifiquei que o MySQL esta funcionando corretamente na minha máquina.</li>
   </ul>
-</details>
+</details> -->
 
 ## Linguagens e ferramentas:
 <div>

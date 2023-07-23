@@ -112,18 +112,20 @@ Descrevo neste tópico alguns possíveis erros que você pode esta enfrentando d
 Antes de mostrar os erros, eu gostaria que você fizesse uma verificação baseada na lista de tarefas a seguir.
 
 Escolha um dos tipos de instalação:
+
 <details>
   <summary>Docker 🐳</summary>
-  <ul style="list-style: none;">
-    <li><input type="checkbox">Eu tenho instalado em minha máquina o Docker e o Docker Compose nas versões mínimas exigidas.</li>
-    <li><input type="checkbox">Verifiquei que a Docker Engine esta funcionando corretamente na minha máquina.</li>
-    <li>
-      <details>
-        <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
-        
-      </details>
-    </li>
-  </ul>
+
+- [ ] Eu tenho instalado em minha máquina o Docker e o Docker Compose nas versões mínimas exigidas.
+- [ ] Verifiquei que a Docker Engine esta funcionando corretamente na minha máquina.
+    <ul style="list-style: none;">
+      <li>
+        <details>
+          <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
+          f
+        </details>
+      </li>
+    </ul>
 </details>
 <details>
 <summary>Localmente 💻</summary>

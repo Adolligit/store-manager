@@ -18,7 +18,7 @@ git clone git@github.com:Adolligit/store-manager.git && cd store-manager/
 ### Instalação
 
 <p align="justify">
-🚨É <b>crucial</b> que você já tenha em sua máquina as ferramentas citadas em cada tipo de instalação, com a correta versão ou superior.
+🚨 É <b>crucial</b> que você já tenha em sua máquina as ferramentas citadas em cada tipo de instalação, com a correta versão ou superior.
 
 Escolha uma das instalações a seguir:
 </p>

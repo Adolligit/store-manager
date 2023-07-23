@@ -118,14 +118,10 @@ Escolha um dos tipos de instalação:
 
 - [ ] Eu tenho instalado em minha máquina o Docker e o Docker Compose nas versões mínimas exigidas.
 - [ ] Verifiquei que a Docker Engine esta funcionando corretamente na minha máquina.
-    <ul style="list-style: none;">
-      <li>
-        <details>
-          <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
-          f
-        </details>
-      </li>
-    </ul>
+    <details>
+      <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
+      Testando a indentação do negocio
+    </details>
 </details>
 <details>
 <summary>Localmente 💻</summary>

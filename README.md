@@ -98,6 +98,10 @@ Executar os a cobertura de testes:
 ```bash
 npm run test:mocha
 ```
+Executar o **ESLint** para verificar os erros do código estático:
+```bash
+npm run lint
+```
 ## Quais são as rotas desta API?
 Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/).
 <img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
@@ -105,7 +109,29 @@ Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagge
 ## Erros comuns
 Descrevo neste tópico alguns possíveis erros que você pode esta enfrentando durante a instalação ou execução desta API.
 
+Antes de mostrar os erros, eu gostaria que você fizesse uma verificação baseada na lista de tarefas a seguir.
 
+Escolha um dos tipos de instalação:
+<details>
+  <summary>Docker 🐳</summary>
+  <ul style="list-style: none;">
+    <li><input type="checkbox">Eu tenho instalado em minha máquina o Docker e o Docker Compose nas versões mínimas exigidas.</li>
+    <li><input type="checkbox">Verifiquei que a Docker Engine esta funcionando corretamente na minha máquina.</li>
+    <li>
+      <details>
+        <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
+        
+      </details>
+    </li>
+  </ul>
+</details>
+<details>
+<summary>Localmente 💻</summary>
+  <ul style="list-style: none;">
+    <li><input type="checkbox">Eu tenho instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.</li>
+    <li><input type="checkbox">Verifiquei que o MySQL esta funcionando corretamente na minha máquina.</li>
+  </ul>
+</details>
 
 ## Linguagens e ferramentas:
 <div>

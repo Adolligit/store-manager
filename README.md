@@ -113,7 +113,7 @@ Uma das opções descritas no erro poderá resolver o problema que você esta en
 
 ### Docker 🐳
 Antes de prosseguir, por favor confirme que:
-- Você tenha instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
+- Você tem instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
 - Verificou que a Docker Engine esta funcionando corretamente na minha máquina.
 
 **Possíveis erros:**

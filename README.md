@@ -106,24 +106,41 @@ npm run lint
 Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/docs](http://127.0.0.1:3000/docs/).
 <img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
 
-<!-- ## Erros comuns
-Descrevo neste tópico alguns possíveis erros que você pode esta enfrentando durante a instalação ou execução desta API.
+## Erros comuns
+Descrevo neste tópico alguns possíveis erros que você pode estar enfrentando durante a instalação ou execução desta API.
 
-Antes de mostrar os erros, eu gostaria que você fizesse uma verificação baseada na lista de tarefas a seguir.
+Uma das opções descritas no erro poderá resolver o problema que você esta enfrentando. Contudo, caso ainda permaneça com dificuldade para testar a API, me envie um e-mail: adelson.onod@gmail.com.
 
-Escolha um dos tipos de instalação:
+### Docker 🐳
+Antes de prosseguir, por favor confirme que:
+- Você tenha instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
+- Verificou que a Docker Engine esta funcionando corretamente na minha máquina.
 
+**Possíveis erros:**
 <details>
-  <summary>Docker 🐳</summary>
+  <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
+  <img align="center" alt="Chai" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/2sse.png">
 
-- [ ] Eu tenho instalado em minha máquina o Docker e o Docker Compose nas versões mínimas exigidas.
-- [ ] Verifiquei que a Docker Engine esta funcionando corretamente na minha máquina.
-    <details>
-      <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
-      Testando a indentação do negocio
-    </details>
+  Você esta tentando subir os contêiners do Docker porém uma das portas já está em uso. Pode ser o banco de dados ou a API com este erro.
+
+  As portas descritas para uso no **docker-compose.yml** são:
+  - API: **3000**
+  - Banco: **3307**
+
+  Para resolver isso, você pode:
+  - Desativar os programas que estão fazendo uso das portas; OU
+  - Alterar o valor para as portas no arquivo **docker-compose.yml**, em:
+    - **MYSQL_PORT**;
+    - **APP_PORT** e;
+    - **ports** (para db e node): as portas da máquina local são descritas no lado esquerdo.
+
+
 </details>
-<details>
+
+
+<!-- ### Localmente 💻 -->
+
+<!-- <details>
 <summary>Localmente 💻</summary>
   <ul style="list-style: none;">
     <li><input type="checkbox">Eu tenho instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.</li>

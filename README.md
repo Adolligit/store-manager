@@ -143,7 +143,13 @@ Antes de prosseguir, por favor confirme que:
   <summary>Erro durante a instalação de dependências: <b>npm install</b></summary>
   <img align="center" alt="npm-install" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/3sse.png">
 
-  - Isso é porque você esta executando fora da pasta do projeto. Entre na pasta e execute o comando `npm install`.
+  O NPM não encontrou o arquivo 'package.json' na pasta de execução. Você pode ter excluído sem querer ou pode estar executando o comando fora da pasta do projeto.
+
+  Para resolver isso, você pode:
+  - Verificar se esta na pasta do projeto. Se não tiver, basta entrar e executar o comando `npm install`; OU
+  - Baixar o `package-lock.json` e o `package.json`, depois colar na pasta do projeto:
+    - https://github.com/Adolligit/store-manager/blob/main/package-lock.json;
+    - https://github.com/Adolligit/store-manager/blob/main/package.json.
 </details>
 
 ## Linguagens e ferramentas:

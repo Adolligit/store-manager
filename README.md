@@ -111,15 +111,19 @@ Descrevo neste tópico alguns possíveis erros que você pode estar enfrentando 
 
 Uma das opções descritas no erro poderá resolver o problema que você esta enfrentando. Contudo, caso ainda permaneça com dificuldade para testar a API, me envie um e-mail: adelson.onod@gmail.com.
 
-### Docker 🐳
 Antes de prosseguir, por favor confirme que:
-- Você tem instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
-- Verificou que a Docker Engine esta funcionando corretamente na minha máquina.
+- Docker 🐳
+  - Você tem instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
+  - Verificou que a Docker Engine esta funcionando corretamente na minha máquina.
+- Localmente 💻
+  - Você tem instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.
+  - Verificou que o MySQL esta funcionando corretamente na minha máquina.
 
-**Possíveis erros:**
+
+### Possíveis erros de instalação e execução:
 <details>
   <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
-  <img align="center" alt="Chai" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/2sse.png">
+  <img align="center" alt="docker-error" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/2sse.png">
 
   Você esta tentando subir os contêiners do Docker porém uma das portas já está em uso. Pode ser o banco de dados ou a API com este erro.
 
@@ -133,20 +137,14 @@ Antes de prosseguir, por favor confirme que:
     - **MYSQL_PORT**;
     - **APP_PORT** e;
     - **ports** (para db e node): as portas da máquina local são descritas no lado esquerdo.
-
-
 </details>
 
+<details>
+  <summary>Erro durante a instalação de dependências: <b>npm install</b></summary>
+  <img align="center" alt="npm-install" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/3sse.png">
 
-<!-- ### Localmente 💻 -->
-
-<!-- <details>
-<summary>Localmente 💻</summary>
-  <ul style="list-style: none;">
-    <li><input type="checkbox">Eu tenho instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.</li>
-    <li><input type="checkbox">Verifiquei que o MySQL esta funcionando corretamente na minha máquina.</li>
-  </ul>
-</details> -->
+  - Isso é porque você esta executando fora da pasta do projeto. Entre na pasta e execute o comando `npm install`.
+</details>
 
 ## Linguagens e ferramentas:
 <div>

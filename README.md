@@ -122,7 +122,7 @@ Antes de prosseguir, por favor confirme que:
 
 ### Possíveis erros de instalação e execução:
 <details>
-  <summary>Erro durante a execução do comando: <b>docker compose up -d</b></summary>
+  <summary>Erro ao subir os contêiners: <b>docker compose up -d</b></summary>
   <img align="center" alt="docker-error" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/2sse.png">
 
   Você esta tentando subir os contêiners do Docker porém uma das portas já está em uso. Pode ser o banco de dados ou a API com este erro.

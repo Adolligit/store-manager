@@ -138,7 +138,6 @@ Antes de prosseguir, por favor confirme que:
     - **APP_PORT** e;
     - **ports** (para db e node): as portas da máquina local são descritas no lado esquerdo.
 </details>
-
 <details>
   <summary>Erro durante a instalação de dependências: <b>npm install</b></summary>
   <img align="center" alt="npm-install" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/3sse.png">
@@ -150,6 +149,15 @@ Antes de prosseguir, por favor confirme que:
   - Baixar o `package-lock.json` e o `package.json`, depois colar na pasta do projeto:
     - https://github.com/Adolligit/store-manager/blob/main/package-lock.json;
     - https://github.com/Adolligit/store-manager/blob/main/package.json.
+</details>
+<details>
+  <summary>Erro ao tentar popular o banco de dados ou ele não foi reconhecido</summary>
+  <img align="center" alt="npm-seed" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/4sse.png">
+
+  Este erro significa que não há criado o banco de dados 'StoreManager'. 
+
+  Para resolver isso você deve:
+  - Executar o comando `npm run migration` (acho que você esqueceu disso lá nos comando acima).
 </details>
 
 ## Linguagens e ferramentas:

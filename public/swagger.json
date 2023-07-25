@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": {
+  "inf  o": {
     "title": "Store Manager",
     "description": "O projeto tem objetivo de simular o gerenciamento de dados de uma loja fictícia, atráves da criação de uma API (esta api)",
     "termsOfService": "http://localhost:3000/terms",

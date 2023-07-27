@@ -92,7 +92,7 @@ npm start
 ```
 Inciar o projeto em modo de desenvolvimento (nodemon):
 ```bash
-npm run debug
+npm run dev
 ```
 Executar os a cobertura de testes:
 ```bash

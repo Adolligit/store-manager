@@ -1,13 +1,14 @@
 {
-  "openapi": "3.0.0",
-  "inf  o": {
+  "openapi": "3.0.1",
+  "info": {
     "title": "Store Manager",
     "description": "O projeto tem objetivo de simular o gerenciamento de dados de uma loja fictícia, atráves da criação de uma API (esta api)",
+    "version": "1.0.0",
     "termsOfService": "http://localhost:3000/terms",
     "contact": {
-      "email": "adelson.onod@gmail.com"
-    },
-    "version": "1.0.0"
+      "name": "Adelson",
+      "url": "https://www.linkedin.com/in/adelson-lima/"
+    }
   },
   "servers": [
     {
@@ -16,38 +17,11 @@
   ],
   "paths": {
     "/products": {
-      "get": {
-        "summary": "Retorna todos os produtos",
-        "description": "Esta rota retornará todos os produtos cadastrados",
-        "tags":["Products"],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetAllProducts"
-                },
-                "example": [
-                  {
-                    "id": 1,
-                    "name": "Martelo de Thor"
-                  },
-                  {
-                      "id": 2,
-                      "name": "Traje de encolhimento"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      },
       "post": {
-        "summary": "Criar item",
-        "description": "Esta rota vai cadastrar no banco de dados os dados de um novo produto",
+        "summary": "Cria o registro de um produto",
         "tags":["Products"],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -122,12 +96,37 @@
             }
           }
         }
+      },
+      "get": {
+        "summary": "Retorna todos os produtos",
+        "tags":["Products"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllProducts"
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Martelo de Thor"
+                  },
+                  {
+                      "id": 2,
+                      "name": "Traje de encolhimento"
+                  }
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/products/{id}": {
       "get": {
         "summary": "Retorna o produto do referente ID informado",
-        "description": "Esta rota retornará todos os produtos cadastrados",
         "tags":["Products"],
         "parameters": [
           {

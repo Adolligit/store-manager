@@ -33,8 +33,8 @@
           }
         },
         "responses": {
-          "200" : {
-            "description": "OK",
+          "201" : {
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -407,20 +407,22 @@
           }
         },
         "responses": {
-          "200" : {
-            "description": "OK",
+          "201" : {
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetAllSales"
+                  "$ref": "#/components/schemas/setNewSale"
                 },
-                "example": [
-                  {
-                    "id": 1,
-                    "productId": 3,
-                    "quantity": 30
-                  }
-                ]
+                "example": {
+                  "id": 1,
+                  "itemSold": [
+                    {
+                      "productId": 3,
+                      "quantity": 30
+                    }
+                  ]
+                }
               }
             }
           },
@@ -480,8 +482,8 @@
         }
       },
       "get": {
-        "summary": "Retornará todos os dados dos produtos",
-        "tags":["Products"],
+        "summary": "Retornará todos os dados das vendas",
+        "tags":["Sales"],
         "responses": {
           "200": {
             "description": "OK",
@@ -545,6 +547,27 @@
                 "type": "number"
               }
           }
+        }
+      },
+      "setNewSale": {
+        "type": "object",
+        "properties": {
+            "id": {
+              "type": "number"
+            },
+            "itemsSold": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "productId": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
         }
       },
       "GetAllSales": {

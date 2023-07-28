@@ -592,8 +592,8 @@
         }
       },
       "put": {
-        "summary": "Atualizará os dados registrados do produto",
-        "tags":["Products"],
+        "summary": "Atualizará os dados registrados da venda",
+        "tags":["Sales"],
         "parameters": [
           {
             "schema": {
@@ -610,16 +610,18 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/putByIdSales"
               },
-              "example": {
-                "name": "Coringa no manicômio"
-              }
+              "example": [
+                  {
+                    "productId": 3,
+                    "quantity": 50
+                  },
+                  {
+                      "productId": 1,
+                      "quantity": 4
+                  }
+              ]
             }
           }
         },
@@ -629,11 +631,38 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/getById"
+                  "type": "object",
+                  "properties": {
+                    "saleId": {
+                      "type": "string"
+                    },
+                    "itemsUpdated": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "productId": {
+                            "type": "number"
+                          },
+                          "quantity": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "example": {
-                  "id": 1,
-                  "name": "Coringa no manicômio"
+                  "saleId": "1",
+                  "itemsUpdated": [
+                    {
+                        "productId": 3,
+                        "quantity": 50
+                    },
+                    {
+                        "productId": 1,
+                        "quantity": 4
+                    }
+                  ]
                 }
               }
             }
@@ -646,7 +675,7 @@
                   "$ref": "#/components/schemas/ErrorMessage"
                 },
                 "example": {
-                  "message": "Product not found"
+                  "message": "Sales not found"
                 }
               }
             }
@@ -737,6 +766,19 @@
         "allOf": [{
           "$ref": "#/components/schemas/getById"
         }]
+      },
+      "putByIdSales": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "productId": {
+              "type": "number"
+            },
+            "quantity": {
+              "type": "number"
+            }
+          }
+        }
       },
       "getByIdSales": {
         "type": "array",

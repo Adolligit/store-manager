@@ -342,8 +342,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK",
+          "204": {
+            "description": "No content",
             "content": {}
           },
           "404": {
@@ -675,7 +675,7 @@
                   "$ref": "#/components/schemas/ErrorMessage"
                 },
                 "example": {
-                  "message": "Sales not found"
+                  "message": "Sale not found"
                 }
               }
             }
@@ -696,8 +696,8 @@
         }
       },
       "delete": {
-        "summary": "Deletará os dados registrados do produto",
-        "tags":["Products"],
+        "summary": "Deletará os dados registrados da venda",
+        "tags":["Sales"],
         "parameters": [
           {
             "schema": {
@@ -710,8 +710,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK",
+          "204": {
+            "description": "No content",
             "content": {}
           },
           "404": {
@@ -722,7 +722,7 @@
                   "$ref": "#/components/schemas/ErrorMessage"
                 },
                 "example": {
-                  "message": "Product not found"
+                  "message": "Sale not found"
                 }
               }
             }

@@ -2,8 +2,8 @@ const Joi = require('joi');
 
 module.exports = (req, _res, next) => {
   let schema = Joi.object({
-    productId: Joi.number().required(),
-    quantity: Joi.number().required(),
+    productId: Joi.number().integer().required(),
+    quantity: Joi.number().integer().required(),
   });
 
   req.body.forEach((e) => {

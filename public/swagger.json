@@ -299,6 +299,19 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "\"quantity\" must be an integer"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Not found",
             "content": {
@@ -663,6 +676,19 @@
                         "quantity": 4
                     }
                   ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "\"quantity\" must be an integer"
                 }
               }
             }

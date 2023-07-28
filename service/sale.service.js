@@ -1,5 +1,5 @@
-const ServiceErrorHandler = require('../errors/service-error-handler');
-const Sale = require('../models/sale.model');
+const ServiceErrorHandler = require('../middleware/error/service-error-handler');
+const Sale = require('../model/sale.model');
 const Product = require('./product.service');
 
 async function createSales() {

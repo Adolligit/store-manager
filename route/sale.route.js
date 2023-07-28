@@ -1,8 +1,8 @@
 const saleRouter = require('express').Router();
-const useRescue = require('../utils/use-rescue');
-const Sale = require('../controllers/sale.controller');
-const verifySaleEntry = require('../middlewares/Sale/verify-sale-entry');
-const verifyId = require('../middlewares/Product/verify-id');
+const useRescue = require('../util/use-rescue');
+const Sale = require('../controller/sale.controller');
+const verifySaleEntry = require('../middleware/sale/verify-sale-entry');
+const verifyId = require('../middleware/product/verify-id');
 
 const create = [verifySaleEntry, Sale.createSales];
 const byId = [verifyId, Sale.getSales];

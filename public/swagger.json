@@ -490,18 +490,35 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetAllProducts"
+                  "$ref": "#/components/schemas/GetAllSales"
                 },
-                "example": [
-                  {
-                    "id": 1,
-                    "name": "Martelo de Thor"
+                "examples": {
+                  "Há registros": {
+                    "value": [
+                      {
+                        "saleId": 1,
+                        "date": "2023-07-25T18:20:29.000Z",
+                        "productId": 2,
+                        "quantity": 10
+                      },
+                      {
+                          "saleId": 2,
+                          "date": "2023-07-25T18:20:29.000Z",
+                          "productId": 3,
+                          "quantity": 15
+                      },
+                      {
+                          "saleId": 3,
+                          "date": "2023-07-28T07:27:55.000Z",
+                          "productId": 3,
+                          "quantity": 30
+                      }
+                    ]
                   },
-                  {
-                      "id": 2,
-                      "name": "Traje de encolhimento"
+                  "Não há registros": {
+                    "value": []
                   }
-                ]
+                }
               }
             }
           }

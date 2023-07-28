@@ -26,7 +26,7 @@ async function createSalesProduct(sales) {
 async function getSales(id) {
   const [result] = await ((id) ? Sale.byId(id) : Sale.all());
 
-  if (!result.length) return ServiceErrorHandler('notFound', 'Sale not found');
+  if (!result.length && id) return ServiceErrorHandler('notFound', 'Sale not found');
 
   return result;
 }

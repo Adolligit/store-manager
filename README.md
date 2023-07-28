@@ -103,7 +103,7 @@ Executar o **ESLint** para verificar os erros do código estático:
 npm run lint
 ```
 ## Quais são as rotas desta API?
-Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/docs/v1](http://127.0.0.1:3000/docs/v1).
+Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/v1/docs/](http://127.0.0.1:3000/v1/docs/).
 <img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
 
 ## Erros comuns

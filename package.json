@@ -13,7 +13,8 @@
     "dev": "nodemon --ignore coverage index.js",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
     "migration": "node -e \"require('./_utils').runMigration()\"",
-    "seed": "node -e \"require('./_utils').runSeed()\""
+    "seed": "node -e \"require('./_utils').runSeed()\"",
+    "reset": "npm run migration && npm run seed"
   },
   "repository": {
     "type": "git",

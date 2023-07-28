@@ -17,7 +17,7 @@
   "paths": {
     "/products": {
       "post": {
-        "summary": "Cria o registro de um produto",
+        "summary": "Criará o registro de um produto",
         "tags":["Products"],
         "requestBody": {
           "required": true,
@@ -26,12 +26,8 @@
               "schema": {
                 "$ref": "#/components/schemas/CreateProduct"
               },
-              "examples": {
-                "insert_new_product": {
-                  "value": {
-                    "name": "Capa do Batman"
-                  }
-                }
+              "example": {
+                  "name": "Capa do Batman"
               }
             }
           }
@@ -53,8 +49,8 @@
                   }
                 },
                 "example": {
-                  "id": 3,
-                  "name":"Coração do Robin"
+                  "id": 1,
+                  "name":"Capa do Batman"
                 }
               }
             }
@@ -97,7 +93,7 @@
         }
       },
       "get": {
-        "summary": "Retorna todos os produtos",
+        "summary": "Retornará todos os dados dos produtos",
         "tags":["Products"],
         "responses": {
           "200": {
@@ -169,9 +165,9 @@
       },
       "GetAllProducts": {
         "type": "array",
-        "items": {
+        "allOf": [{
           "$ref": "#/components/schemas/getById"
-        }
+        }]
       },
       "ErrorMessage": {
         "type": "object",

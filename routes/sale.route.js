@@ -14,7 +14,7 @@ const update = [verifyId, verifySaleEntry, Sale.update];
 router.get('/', useRescue(Sale.getSales));
 router.post('/', useRescue(create));
 router.get('/:id', useRescue(byId));
-router.delete('/:id', useRescue(remove));
 router.put('/:id', useRescue(update));
+router.delete('/:id', useRescue(remove));
 
 module.exports = router;

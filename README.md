@@ -104,7 +104,7 @@ npm run lint
 ```
 ## Quais são as rotas desta API?
 Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/v1/docs/](http://127.0.0.1:3000/v1/docs/).
-<img align="center" alt="NodeJs" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ss.png">
+<img align="center" alt="gif de demonstração de uso" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1.gif">
 
 ## Erros comuns
 Descrevo neste tópico alguns possíveis erros que você pode estar enfrentando durante a instalação ou execução desta API.

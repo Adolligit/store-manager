@@ -1,4 +1,4 @@
-const ServiceErrorHandler = require('../middleware/error/service-error-handler');
+const ServiceErrorHandler = require('../middleware/handlerError/service-error-handler');
 const Product = require('../model/product.model');
 
 async function all() {

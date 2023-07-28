@@ -1,20 +1,18 @@
-const express = require('express');
+const productRouter = require('express').Router();
 const Product = require('../controllers/product.controller');
 const verifyId = require('../middlewares/Product/verify-id');
 const verifyName = require('../middlewares/Product/verify-name');
 const useRescue = require('../utils/use-rescue');
 
-const router = express.Router();
-
 const byId = [verifyId, Product.byId];
 const create = [verifyName, Product.create];
 const update = [verifyId, verifyName, Product.update];
 
-router.get('/', Product.all);
-router.post('/', useRescue(create));
-router.get('/search', useRescue(Product.query));
-router.get('/:id', useRescue(byId));
-router.put('/:id', useRescue(update));
-router.delete('/:id', useRescue(Product.remove));
+productRouter.get('/', Product.all);
+productRouter.post('/', useRescue(create));
+productRouter.get('/search', useRescue(Product.query));
+productRouter.get('/:id', useRescue(byId));
+productRouter.put('/:id', useRescue(update));
+productRouter.delete('/:id', useRescue(Product.remove));
 
-module.exports = router;
+module.exports = productRouter;

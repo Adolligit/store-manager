@@ -119,6 +119,81 @@
         }
       }
     },
+    "/products/search?q=": {
+      "get": {
+        "summary": "Retornará todos os registros correspondente ao nome pesquisado",
+        "description": "Ao informar o termo, uma busca é feita no atributo 'name' de cada registro e irá retorna-los caso estes correspondam ao termo.",
+        "tags":["Products"],
+        "parameters": [
+          {
+            "schema":{
+              "type":"string"
+            },
+            "name": "q",
+            "in": "query",
+            "description": "Informe o nome de um produto:"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "description": "Quando você não informa nenhum valor para o parâmetro 'q', todos os registros de todos os produtos irão retornar.",
+                    "value": [
+                      {
+                        "id": 1,
+                        "name": "Capa do Batman"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Capa do Robin"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Coringa no manicômio"
+                      }
+                    ]
+                  },
+                  "2": {
+                    "description": "Ao informando 'capa' para o parâmetro 'q', uma busca é feita no atributo 'name' de todos os registros e então irá retornar cada um que corresponda com 'capa'.",
+                    "value": [
+                      {
+                        "id": 1,
+                        "name": "Capa do Batman"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Capa do Robin"
+                      }
+                    ]
+                  },
+                  "3": {
+                    "description": "Quando um termo não corresponder a nenhuma valor do atributo 'name' de todos os registros, um vetor vazio é retornado.",
+                    "value": []
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/products/{id}": {
       "get": {
         "summary": "Retornará os dados do produto referente ao ID informado",

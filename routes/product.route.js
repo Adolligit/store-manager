@@ -12,9 +12,9 @@ const update = [verifyId, verifyName, Product.update];
 
 router.get('/', Product.all);
 router.post('/', useRescue(create));
+router.get('/search', useRescue(Product.query));
 router.get('/:id', useRescue(byId));
 router.put('/:id', useRescue(update));
 router.delete('/:id', useRescue(Product.remove));
-router.get('/search', useRescue(Product.query));
 
 module.exports = router;

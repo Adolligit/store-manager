@@ -102,7 +102,7 @@ Executar o **ESLint** para verificar os erros do código estático:
 ```bash
 npm run lint
 ```
-Deletar e criar novamente o banco de dados já populado:
+Recriar o banco de dados já populado:
 ```bash
 npm run reset
 ```

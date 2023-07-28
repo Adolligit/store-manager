@@ -121,13 +121,13 @@
     },
     "/products/{id}": {
       "get": {
-        "summary": "Retorna o produto do referente ID informado",
+        "summary": "Retornará os dados do produto referente ao ID informado",
         "tags":["Products"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Buscar produto pelo ID",
+            "description": "Informe o ID do registro:",
             "required": true
           }
         ],
@@ -138,6 +138,154 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/getById"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "Capa do Batman"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "Product not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "O id informado é inválido"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizará os dados registrados do produto",
+        "tags":["Products"],
+        "parameters": [
+          {
+            "schema": {},
+            "required": true,
+            "description": "Informe o ID do registro:",
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "name": "Coringa no manicômio"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getById"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "Coringa no manicômio"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "Product not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "O id informado é inválido"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletará os dados registrados do produto",
+        "tags":["Products"],
+        "parameters": [
+          {
+            "schema": {},
+            "required": true,
+            "description": "Informe o ID do registro:",
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "Product not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "O id informado é inválido"
                 }
               }
             }
@@ -172,7 +320,7 @@
       "ErrorMessage": {
         "type": "object",
         "properties": {
-          "name": {
+          "message": {
             "type": "string"
           }
         }

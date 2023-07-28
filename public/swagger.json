@@ -200,8 +200,11 @@
         "tags":["Products"],
         "parameters": [
           {
-            "name": "id",
+            "schema": {
+              "type": "number"
+            },
             "in": "path",
+            "name": "id",
             "description": "Informe o ID do registro:",
             "required": true
           }
@@ -254,7 +257,9 @@
         "tags":["Products"],
         "parameters": [
           {
-            "schema": {},
+            "schema": {
+              "type": "number"
+            },
             "required": true,
             "description": "Informe o ID do registro:",
             "name": "id",
@@ -327,7 +332,9 @@
         "tags":["Products"],
         "parameters": [
           {
-            "schema": {},
+            "schema": {
+              "type": "number"
+            },
             "required": true,
             "description": "Informe o ID do registro:",
             "name": "id",
@@ -367,6 +374,137 @@
           }
         }
       }
+    },
+    "/sales": {
+      "post": {
+        "summary": "Criará o registro de uma venda",
+        "tags":["Sales"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "productId": {
+                      "type": "number"
+                    },
+                    "quantity": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "productId": 3,
+                  "quantity": 30
+                }
+              ]
+            }
+          }
+        },
+        "responses": {
+          "200" : {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllSales"
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "productId": 3,
+                    "quantity": 30
+                  }
+                ]
+              }
+            }
+          },
+          "400" : {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "examples": {
+                  "Chave não declarada": {
+                    "value": {
+                      "message": "\"productId\" is required"
+                    }
+                  },
+                  "O valor deve ser number": {
+                    "value": {
+                      "message": "\"quantity\" must be a number"
+                    }
+                  },
+                  "Chave não permitida": {
+                    "value": {
+                      "message": "\"key\" is not allowed"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "Product not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorMessage"
+                },
+                "example": {
+                  "message": "\"quantity\" must be greater than or equal to 1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retornará todos os dados dos produtos",
+        "tags":["Products"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllProducts"
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Martelo de Thor"
+                  },
+                  {
+                      "id": 2,
+                      "name": "Traje de encolhimento"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -391,6 +529,43 @@
         "allOf": [{
           "$ref": "#/components/schemas/getById"
         }]
+      },
+      "getByIdSales": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+              "date": {
+                "type": "string"
+              },
+              "productId": {
+                "type": "number"
+              },
+              "quantity": {
+                "type": "number"
+              }
+          }
+        }
+      },
+      "GetAllSales": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+              "id": {
+                "type": "number"
+              },
+              "date": {
+                "type": "string"
+              },
+              "productId": {
+                "type": "number"
+              },
+              "quantity": {
+                "type": "number"
+              }
+          }
+        }
       },
       "ErrorMessage": {
         "type": "object",

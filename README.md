@@ -110,6 +110,10 @@ npm run reset
 Deixei uma documentação feita com [Swagger UI](https://swagger.io/tools/swagger-ui/) para facilitar e lhe orientar no uso da API. Você pode acessa-la em [http://127.0.0.1:3000/v1/docs/](http://127.0.0.1:3000/v1/docs/).
 <img align="center" alt="gif de demonstração de uso" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1.gif">
 
+## Como estão organizadas as tabelas?
+Apesar de ser uma API Rest bem simples, eu fiz esse DER para facilitar a visualização da estrutura do banco de dados. Desta forma fica mais fácil saber como esta o relacionamento entre as entidades. Confira:
+<img align="center" alt="DER" src="https://raw.githubusercontent.com/Adolligit/store-manager/main/img/1ssdb.png">
+
 ## Erros comuns
 Descrevo neste tópico alguns possíveis erros que você pode estar enfrentando durante a instalação ou execução desta API.
 

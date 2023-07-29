@@ -5,6 +5,7 @@
   "extends": "trybe-backend",
   "rules": {
     "sonarjs/no-duplicate-string": ["error", 5],
-    "no-unused-expressions": "off"
+    "no-unused-expressions": "off",
+    "max-lines": "off"
   }
 }

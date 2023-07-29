@@ -620,21 +620,36 @@
         ],
         "requestBody": {
           "required": true,
+          "description": "Você conseguirá alterar em uma venda, somente a QUANTIDADE do produto vendido. Não poderá alterar a DATA nem mesmo adicionar um novo produto a uma venda que tenha, por exemplo, somente um produto associado. Contudo, é possível alterar um ou mais produtos de uma vez. Utilize um dos exemplos abaixo:", 
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/putByIdSales"
               },
-              "example": [
-                  {
-                    "productId": 3,
-                    "quantity": 50
-                  },
-                  {
-                      "productId": 1,
-                      "quantity": 4
-                  }
-              ]
+              "examples": {
+                "1 produto": {
+                  "description": "Alterando somente um produto dentro de uma venda.",
+                  "value": [
+                    {
+                      "productId": 3,
+                      "quantity": 27
+                    }
+                  ]
+                },
+                "N produto": {
+                  "description": "Alterando vários produtos dentro de uma venda.",
+                  "value": [
+                    {
+                      "productId": 3,
+                      "quantity": 50
+                    },
+                    {
+                        "productId": 1,
+                        "quantity": 4
+                    }
+                  ]
+                }
+              } 
             }
           }
         },

@@ -1,9 +1,9 @@
-const { expect } = require("chai");
-const Sinon = require("sinon");
+const { expect } = require('chai');
+const Sinon = require('sinon');
 
-const ProductService = require('../../../services/Product');
-const ProductModel = require('../../../models/Product');
-const ServiceErrorHandler = require("../../../Errors/ServiceErrorHandler");
+const ProductService = require('../../../service/product.service');
+const ProductModel = require('../../../model/product.model');
+const ServiceErrorHandler = require('../../../middleware/handlerError/service-error-handler');
 
 const { all, byId, create, query, update } = require('../../mocks/Products');
 const { notFound } = require('../../mocks/Errors');

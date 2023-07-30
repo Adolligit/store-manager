@@ -1,4 +1,3 @@
-/* eslint max-lines: off */
 const Sinon = require('sinon');
 const { expect } = require('chai');
 

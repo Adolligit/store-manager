@@ -31,11 +31,11 @@ Escolha uma das instalações a seguir:
     <li>Docker Compose: v1.29</li>
 </ul>
 
-  2. Crie e inicie os contêiners:
+  1. Crie e inicie os contêiners:
   ```bash
   docker compose up -d
   ```
-  3. Entre no contêiner da aplicação:
+  2. Entre no contêiner da aplicação:
   ```bash
   docker exec -it store_manager bash
   ```

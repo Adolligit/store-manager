@@ -122,10 +122,10 @@ Uma das opções descritas no erro poderá resolver o problema que você esta en
 Antes de prosseguir, por favor confirme que:
 - Docker 🐳
   - Você tem instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
-  - Verificou que a Docker Engine esta funcionando corretamente na minha máquina.
+  - Verificou que a Docker Engine esta funcionando corretamente na sua máquina.
 - Localmente 💻
   - Você tem instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.
-  - Verificou que o MySQL esta funcionando corretamente na minha máquina.
+  - Verificou que o MySQL esta funcionando corretamente na sua máquina.
 
 
 ### Possíveis erros de instalação e execução:

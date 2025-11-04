@@ -179,12 +179,3 @@ Antes de prosseguir, por favor confirme que:
     <a href="https://dev.mysql.com/doc/"><img align="center" alt="NodeJs" height="45" width="66" src="https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png"></a>
     <a href="https://docs.docker.com/"><img align="center" alt="NodeJs" height="45" width="45" src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"></a>
 </div>
-
-## Agradecimento
-<p align="justify">
-Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a técnica de <b>TDD</b>, cobrindo parte do desenvolvimento com testes unitários.
-</p>
-
-<p align="justify">
-E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a <a href="https://github.com/tryber">@tryber</a> pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. 
-</p>
